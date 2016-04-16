@@ -329,11 +329,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 0083fd52bb583f645afe6cf2be4cee1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.6800003
+      value: -4.6500001
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0083fd52bb583f645afe6cf2be4cee1e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 13.8199997
+      value: 19.2000008
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0083fd52bb583f645afe6cf2be4cee1e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -357,7 +357,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0083fd52bb583f645afe6cf2be4cee1e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0083fd52bb583f645afe6cf2be4cee1e, type: 3}
       propertyPath: m_TagString
@@ -801,6 +801,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!1 &1494672655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1494672657}
+  - 65: {fileID: 1494672656}
+  m_Layer: 0
+  m_Name: MediumAltitudeZone
+  m_TagString: MediumAltitudeZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1494672656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1494672655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 60, y: 5, z: 60}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1494672657
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1494672655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.8499999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
 --- !u!1 &1640058702 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}

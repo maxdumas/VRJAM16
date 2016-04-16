@@ -10,6 +10,7 @@ TagManager:
   - Adult
   - Asteroid
   - Exit
+  - MediumAltitudeZone
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,7 @@ using System.Collections;
 public class AdultAIController : Controller {
 	public float MaxMovementRadius = 5f;
 
+	private Collider _mediumAltitudeZone;
 	private Vector3? _target;
 	private bool _acquiringTarget = false;
 
@@ -18,6 +19,7 @@ public class AdultAIController : Controller {
 		_mvmt = GetComponent<AdultMovement> ();
 		_insect = GetComponent<Insect> ();
 		_animC = GetComponent<Animator> ();
+		_mediumAltitudeZone = GameObject.FindGameObjectWithTag ("MediumAltitudeZone").GetComponent<Collider>();
 	}
 	
 	// Update is called once per frame
@@ -25,8 +27,6 @@ public class AdultAIController : Controller {
 		if (_target == null) {
 			if(!_acquiringTarget) {
 				StartCoroutine(AcquireTargetCoroutine());
-				_acquiringTarget = true;
-				_animC.SetTrigger("SoftFly");
 			}
 		} else if (!_mvmt.MoveTowardsTarget (_target)) {
 			_target = null;
@@ -34,8 +34,12 @@ public class AdultAIController : Controller {
 	}
 
 	private IEnumerator AcquireTargetCoroutine() {
+		transform.rotation.SetLookRotation (Vector3.up);
+		_acquiringTarget = true;
+		_animC.SetTrigger("SoftFly");
 		yield return new WaitForSeconds(Random.value * 2f);
 		_target = AcquireTarget ();
+		transform.LookAt (_target.Value);
 		_acquiringTarget = false;
 		_animC.SetTrigger("DashFly");
 	}
@@ -43,15 +47,16 @@ public class AdultAIController : Controller {
 	private Vector3 AcquireTarget () {
 		float x = Random.value;
 		if (x < 0.33f) { // Derp
-			return Random.onUnitSphere * MaxMovementRadius;
+			return _mediumAltitudeZone.ClosestPointOnBounds(transform.position);
+//			return transform.position + Random.onUnitSphere * MaxMovementRadius;
 		} else if (x < 0.66f) { // Murder
 			Vector3? closestLarva = getClosest(this.transform.position, GameObject.FindGameObjectsWithTag("Larva").Select(go => go.transform.position));
 			if (closestLarva.HasValue) {
 				var cv = (closestLarva.Value - this.transform.position);
 				if (cv.magnitude > MaxMovementRadius) {
-					return cv.normalized * MaxMovementRadius;
+					return transform.position + cv.normalized * MaxMovementRadius;
 				} else {
-					return cv;
+					return closestLarva.Value;
 				}
 			} else {
 				return Random.onUnitSphere * MaxMovementRadius;

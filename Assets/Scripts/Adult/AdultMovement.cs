@@ -18,14 +18,8 @@ public class AdultMovement : MonoBehaviour {
 		if (!target.HasValue) {
 			return false;
 		}
-		var cv = target.Value - this.transform.position;
-		var direction = cv.normalized;
-		var distance = cv.magnitude;
-		if (distance > MovementSpeed) {
-			transform.position += direction * MovementSpeed * Time.deltaTime;
-		} else {
-			transform.position = Vector3.Lerp (transform.position, target.Value, 0.5f);
-		}
+
+		transform.position = Vector3.MoveTowards (transform.position, target.Value, MovementSpeed * Time.deltaTime);
 
 		return (transform.position - target.Value).magnitude > Vector3.kEpsilon;
 	}
