@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections;
 
 public class AdultAIController : Controller {
-	public const float MAX_MOVEMENT_RADIUS = 5f;
+	public float MaxMovementRadius = 5f;
 
 	private Vector3? _target;
 	private bool _acquiringTarget = false;
@@ -38,18 +38,18 @@ public class AdultAIController : Controller {
 	private Vector3 AcquireTarget () {
 		float x = Random.value;
 		if (x < 0.33f) { // Derp
-			return Random.onUnitSphere * MAX_MOVEMENT_RADIUS;
+			return Random.onUnitSphere * MaxMovementRadius;
 		} else if (x < 0.66f) { // Murder
 			Vector3? closestLarva = getClosest(this.transform.position, GameObject.FindGameObjectsWithTag("Larva").Select(go => go.transform.position));
 			if (closestLarva.HasValue) {
 				var cv = (closestLarva.Value - this.transform.position);
-				if (cv.magnitude > MAX_MOVEMENT_RADIUS) {
-					return cv.normalized * MAX_MOVEMENT_RADIUS;
+				if (cv.magnitude > MaxMovementRadius) {
+					return cv.normalized * MaxMovementRadius;
 				} else {
 					return cv;
 				}
 			} else {
-				return Random.onUnitSphere * MAX_MOVEMENT_RADIUS;
+				return Random.onUnitSphere * MaxMovementRadius;
 			}
 		} else {
 			// Attempt freedom

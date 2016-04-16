@@ -800,7 +800,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
 --- !u!1 &1640058702 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
@@ -877,7 +877,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1001 &1707638750
 Prefab:
   m_ObjectHideFlags: 0
@@ -915,7 +915,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487850, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}

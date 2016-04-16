@@ -75,6 +75,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 487850}
   - 114: {fileID: 11449022}
+  - 114: {fileID: 11463106}
+  - 114: {fileID: 11485790}
   m_Layer: 0
   m_Name: adultModel
   m_TagString: Adult
@@ -437,6 +439,30 @@ MonoBehaviour:
   Larva: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
   Nymph: {fileID: 190576, guid: 1a6ec4afb40f2d04c884487117efccb2, type: 2}
   Adult: {fileID: 166246}
+--- !u!114 &11463106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4d0715929784e53b30e4c2335db031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxMovementRadius: 2
+--- !u!114 &11485790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 896de57b10e074d37b207dc8fd05b9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -456,6 +482,14 @@ Prefab:
       propertyPath: Adult
       value: 
       objectReference: {fileID: 166246}
+    - target: {fileID: 0}
+      propertyPath: MovementSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: MaxMovementRadius
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 166246}

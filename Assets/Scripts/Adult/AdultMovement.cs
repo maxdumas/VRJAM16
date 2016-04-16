@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class AdultMovement : MonoBehaviour {
-	public float MovementSpeed = 0.5f;
+	public float MovementSpeed = 5f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,7 @@ public class AdultMovement : MonoBehaviour {
 		var direction = cv.normalized;
 		var distance = cv.magnitude;
 		if (distance > MovementSpeed) {
-			transform.position += direction * MovementSpeed;
+			transform.position += direction * MovementSpeed * Time.deltaTime;
 		} else {
 			transform.position = Vector3.Lerp (transform.position, target.Value, 0.5f);
 		}
