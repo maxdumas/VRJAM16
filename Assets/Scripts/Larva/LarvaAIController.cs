@@ -10,10 +10,14 @@ public class LarvaAIController : Controller {
 	private LarvaMovement _mvmt;
 	private Insect _insect;
 
+	private Animator _animC;
+
 	// Use this for initialization
 	void Start () {
 		_mvmt = GetComponent<LarvaMovement> ();
 		_insect = GetComponent<Insect> ();
+		_animC = GetComponent<Animator>();
+		_animC.SetBool ("Moving", true);
 	}
 
 	// Update is called once per frame
@@ -23,6 +27,7 @@ public class LarvaAIController : Controller {
 		Vector3 direction = getMovementDir (allFood, allAdults);
 		_mvmt.MoveInDirection (direction, MovementSpeed);
 		_mvmt.LookInDirection (direction, MovementSpeed);
+		_animC.SetBool ("Moving", true);
 	}
 
 	Vector3 getMovementDir (IEnumerable<Food> food, IEnumerable<Insect> adults) {
