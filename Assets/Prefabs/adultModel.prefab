@@ -434,16 +434,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stage: 2
-  Larva: {fileID: 0}
-  Nymph: {fileID: 0}
-  Adult: {fileID: 0}
+  Larva: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+  Nymph: {fileID: 190576, guid: 1a6ec4afb40f2d04c884487117efccb2, type: 2}
+  Adult: {fileID: 166246}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Larva
+      value: 
+      objectReference: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Nymph
+      value: 
+      objectReference: {fileID: 190576, guid: 1a6ec4afb40f2d04c884487117efccb2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: Adult
+      value: 
+      objectReference: {fileID: 166246}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 166246}
