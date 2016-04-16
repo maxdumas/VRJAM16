@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be187ecca50c1c646bdbf34cff304cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DangerDistance: 10
+  DangerDistance: 5
   MovementSpeed: .00999999978
 --- !u!114 &11494336
 MonoBehaviour:
@@ -254,7 +254,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: DangerDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165858}

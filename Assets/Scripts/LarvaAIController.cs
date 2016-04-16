@@ -18,15 +18,14 @@ public class LarvaAIController : Controller {
 
 	// Update is called once per frame
 	void Update () {
-		var allFood = GameObject.FindGameObjectsWithTag ("Food").Cast<Food>();
-		//var allFood = GameObject.FindGameObjectsWithTag ("Food");
-		var allAdults = GameObject.FindGameObjectsWithTag ("Adult");
+		var allFood = GameObject.FindGameObjectsWithTag ("Food").Select(go => go.GetComponent<Food>());
+		var allAdults = GameObject.FindGameObjectsWithTag ("Adult").Select(go => go.GetComponent<Insect>());
 		Vector3 direction = getMovementDir (allFood, allAdults);
 		_mvmt.MoveInDirection (direction, MovementSpeed);
 		_mvmt.LookInDirection (direction, MovementSpeed);
 	}
 
-	Vector3 getMovementDir (IEnumerable<Food> food, IEnumerable<GameObject> adults) {
+	Vector3 getMovementDir (IEnumerable<Food> food, IEnumerable<Insect> adults) {
 		var closestAdult = getClosest (this.transform.position, adults.Select(a => a.transform.position));
 		//Debug.Log (closestAdult);
 		if (closestAdult.HasValue) {
@@ -52,7 +51,7 @@ public class LarvaAIController : Controller {
 		if (otherInsect != null) {
 			// And it's an adult...
 			if (otherInsect.Stage == Stage.Adult) {
-				Destroy (this.gameObject); // We are eaten!
+				PoolMaster.Despawn(this.gameObject); // We are eaten!
 			}
 			return;
 		}
