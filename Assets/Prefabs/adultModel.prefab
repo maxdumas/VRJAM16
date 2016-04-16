@@ -75,8 +75,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 487850}
   - 114: {fileID: 11449022}
-  - 114: {fileID: 11445956}
-  - 114: {fileID: 11441190}
   m_Layer: 0
   m_Name: adultModel
   m_TagString: Adult
@@ -424,29 +422,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191716}
   m_Mesh: {fileID: 4300004, guid: b37e39fdcc7ac3c448139c1e50befb20, type: 3}
---- !u!114 &11441190
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4d0715929784e53b30e4c2335db031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11445956
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896de57b10e074d37b207dc8fd05b9d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MovementSpeed: 1
 --- !u!114 &11449022
 MonoBehaviour:
   m_ObjectHideFlags: 1
