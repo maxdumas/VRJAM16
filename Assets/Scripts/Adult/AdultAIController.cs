@@ -13,7 +13,7 @@ public class AdultAIController : Controller {
 	// Update is called once per frame
 	void Update () {
 		if (_target == null) {
-			_target = AcquireTarget;
+//			_target = AcquireTarget;
 		} else {
 
 		}
