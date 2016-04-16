@@ -9,6 +9,7 @@ TagManager:
   - Nymph
   - Adult
   - Asteroid
+  - Exit
   layers:
   - Default
   - TransparentFX

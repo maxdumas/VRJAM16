@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections;
 
 public class AdultAIController : Controller {
+	public const float MAX_MOVEMENT_RADIUS = 5f;
 
 	private Vector3? _target;
+	private bool _acquiringTarget = false;
 
 	private AdultMovement _mvmt;
 	private Insect _insect;
@@ -17,14 +20,41 @@ public class AdultAIController : Controller {
 	// Update is called once per frame
 	void Update () {
 		if (_target == null) {
-			_target = AcquireTarget();
+			if(!_acquiringTarget) {
+				StartCoroutine(AcquireTargetCoroutine());
+				_acquiringTarget = true;
+			}
 		} else if (!_mvmt.MoveTowardsTarget (_target)) {
 			_target = null;
 		}
 	}
 
+	private IEnumerator AcquireTargetCoroutine() {
+		yield return new WaitForSeconds(Random.value * 2f);
+		_target = AcquireTarget ();
+		_acquiringTarget = false;
+	}
+
 	private Vector3 AcquireTarget () {
-		return Vector3.zero;
+		float x = Random.value;
+		if (x < 0.33f) { // Derp
+			return Random.onUnitSphere * MAX_MOVEMENT_RADIUS;
+		} else if (x < 0.66f) { // Murder
+			Vector3? closestLarva = getClosest(this.transform.position, GameObject.FindGameObjectsWithTag("Larva").Select(go => go.transform.position));
+			if (closestLarva.HasValue) {
+				var cv = (closestLarva.Value - this.transform.position);
+				if (cv.magnitude > MAX_MOVEMENT_RADIUS) {
+					return cv.normalized * MAX_MOVEMENT_RADIUS;
+				} else {
+					return cv;
+				}
+			} else {
+				return Random.onUnitSphere * MAX_MOVEMENT_RADIUS;
+			}
+		} else {
+			// Attempt freedom
+			return GameObject.FindGameObjectWithTag("Exit").transform.position;
+		}
 	}
 
 	public void OnCollisionEnter (Collision collision) {

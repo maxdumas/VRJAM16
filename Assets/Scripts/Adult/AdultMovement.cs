@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class AdultMovement : MonoBehaviour {
-	public float MovementSpeed = 1f;
+	public float MovementSpeed = 0.5f;
 
 	// Use this for initialization
 	void Start () {
