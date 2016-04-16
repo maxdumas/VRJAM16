@@ -21,6 +21,7 @@ limitations under the License.
 
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.VR;
 
 /// <summary>
 /// Controls the player's movement in virtual reality.
@@ -71,7 +72,7 @@ public class OVRPlayerController : MonoBehaviour
 	/// <summary>
 	/// Modifies the strength of gravity.
 	/// </summary>
-	public float GravityModifier = 0.379f;
+	//public float GravityModifier = 0.379f;
 	
 	/// <summary>
 	/// If true, each OVRPlayerController will use the player's physical height.
@@ -83,15 +84,15 @@ public class OVRPlayerController : MonoBehaviour
 
 	private float MoveScale = 1.0f;
 	private Vector3 MoveThrottle = Vector3.zero;
-	private float FallSpeed = 0.0f;
+	//private float FallSpeed = 0.0f;
 	private OVRPose? InitialPose;
 	private float InitialYRotation = 0.0f;
 	private float MoveScaleMultiplier = 1.0f;
 	private float RotationScaleMultiplier = 1.0f;
 	private bool  SkipMouseRotation = false;
 	private bool  HaltUpdateMovement = false;
-	private bool prevHatLeft = false;
-	private bool prevHatRight = false;
+	//private bool prevHatLeft = false;
+	//private bool prevHatRight = false;
 	private float SimulationRate = 60f;
 
 	void Start()
@@ -145,6 +146,14 @@ public class OVRPlayerController : MonoBehaviour
 
 	protected virtual void Update()
 	{
+		if (Input.GetKey (KeyCode.Joystick1Button6)) {
+			Application.Quit ();
+		}
+
+		if (Input.GetKey(KeyCode.Joystick1Button8)) {
+			OVRManager.display.RecenterPose();
+		}
+
 		if (useProfileData)
 		{
 			if (InitialPose == null)
@@ -183,22 +192,26 @@ public class OVRPlayerController : MonoBehaviour
 
 		moveDirection += MoveThrottle * SimulationRate * Time.deltaTime;
 
-		// Gravity
+		// Gravity 
+		/*
 		if (Controller.isGrounded && FallSpeed <= 0)
 			FallSpeed = ((Physics.gravity.y * (GravityModifier * 0.002f)));
 		else
 			FallSpeed += ((Physics.gravity.y * (GravityModifier * 0.002f)) * SimulationRate * Time.deltaTime);
 
 		moveDirection.y += FallSpeed * SimulationRate * Time.deltaTime;
+		*/
 
 		// Offset correction for uneven ground
-		float bumpUpOffset = 0.0f;
+		//float bumpUpOffset = 0.0f;
 
-        if (Controller.isGrounded && MoveThrottle.y <= transform.lossyScale.y * 0.001f)
+		//if (Controller.isGrounded && MoveThrottle.y <= 0.001f)
+
+		/* if (MoveThrottle.y <= 0.001f)
 		{
 			bumpUpOffset = Mathf.Max(Controller.stepOffset, new Vector3(moveDirection.x, 0, moveDirection.z).magnitude);
 			moveDirection -= bumpUpOffset * Vector3.up;
-		}
+		} */
 
 		Vector3 predictedXZ = Vector3.Scale((Controller.transform.localPosition + moveDirection), new Vector3(1, 0, 1));
 
@@ -220,21 +233,37 @@ public class OVRPlayerController : MonoBehaviour
 		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
 		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
 		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+		//bool moveDown = Input.GetKey(KeyCode.Q) || OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.LeftShoulder);
+		//bool moveUp = Input.GetKey(KeyCode.E) || OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.RightShoulder);
+
 
 		bool dpad_move = false;
-
-		if (OVRInput.Get(OVRInput.Button.DpadUp))
+		/*
+		if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.Up))
 		{
 			moveForward = true;
 			dpad_move   = true;
 
 		}
-
-		if (OVRInput.Get(OVRInput.Button.DpadDown))
+		if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.Down))
 		{
 			moveBack  = true;
 			dpad_move = true;
 		}
+		if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.Left))
+		{
+			moveLeft = true;
+			dpad_move   = true;
+
+		}
+		if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.Right))
+		{
+			moveRight  = true;
+			dpad_move = true;
+		} 
+
+		*/
+
 
 		MoveScale = 1.0f;
 
@@ -243,8 +272,8 @@ public class OVRPlayerController : MonoBehaviour
 			MoveScale = 0.70710678f;
 
 		// No positional movement if we are in the air
-		if (!Controller.isGrounded)
-			MoveScale = 0.0f;
+		/*if (!Controller.isGrounded)
+			MoveScale = 0.0f; */
 
 		MoveScale *= SimulationRate * Time.deltaTime;
 
@@ -268,17 +297,24 @@ public class OVRPlayerController : MonoBehaviour
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
 		if (moveRight)
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);
-
+	/*	if (moveDown)
+			MoveThrottle += ort * (transform.lossyScale.y * moveInfluence * BackAndSideDampen * Vector3.down);
+		if (moveUp)
+			MoveThrottle += ort * (transform.lossyScale.y * moveInfluence * BackAndSideDampen * Vector3.up);
+	*/
 		Vector3 euler = transform.rotation.eulerAngles;
 
-		bool curHatLeft = OVRInput.Get(OVRInput.Button.PrimaryShoulder);
+
+		/*
+		bool curHatLeft = OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.LeftShoulder);
 
 		if (curHatLeft && !prevHatLeft)
 			euler.y -= RotationRatchet;
 
 		prevHatLeft = curHatLeft;
 
-		bool curHatRight = OVRInput.Get(OVRInput.Button.SecondaryShoulder);
+	
+		bool curHatRight = OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.RightShoulder);
 
 		if(curHatRight && !prevHatRight)
 			euler.y += RotationRatchet;
@@ -290,38 +326,48 @@ public class OVRPlayerController : MonoBehaviour
 			euler.y -= RotationRatchet;
 
 		if (Input.GetKeyDown(KeyCode.E))
-			euler.y += RotationRatchet;
+			euler.y += RotationRatchet; */
 
 		float rotateInfluence = SimulationRate * Time.deltaTime * RotationAmount * RotationScaleMultiplier;
 
 #if !UNITY_ANDROID || UNITY_EDITOR
 		if (!SkipMouseRotation)
 			euler.y += Input.GetAxis("Mouse X") * rotateInfluence * 3.25f;
+			//If I want mouse to also look up and down-- good for WebGL/non-VR builds
+			//euler.x -= Input.GetAxis("Mouse Y") * rotateInfluence * 3.25f;
 #endif
 
 		moveInfluence = SimulationRate * Time.deltaTime * Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
-		moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
+		moveInfluence *= 2.0f + OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.RightTrigger);
+		moveInfluence /= 1.2f + OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.LeftTrigger);
 #endif
 
-		Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+		float leftAxisX = OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.LeftXAxis);
+		float leftAxisY = OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.LeftYAxis);
 
-		if(primaryAxis.y > 0.0f)
-            MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * Vector3.forward);
+		if(leftAxisY > 0.0f)
+			MoveThrottle += ort * (leftAxisY * moveInfluence * Vector3.forward);
 
-		if(primaryAxis.y < 0.0f)
-            MoveThrottle += ort * (Mathf.Abs(primaryAxis.y) * transform.lossyScale.z * moveInfluence * BackAndSideDampen * Vector3.back);
+		if(leftAxisY < 0.0f)
+			MoveThrottle += ort * (Mathf.Abs(leftAxisY) * moveInfluence * BackAndSideDampen * Vector3.back);
 
-		if(primaryAxis.x < 0.0f)
-            MoveThrottle += ort * (Mathf.Abs(primaryAxis.x) * transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
+		if(leftAxisX < 0.0f)
+			MoveThrottle += ort * (Mathf.Abs(leftAxisX) * moveInfluence * BackAndSideDampen * Vector3.left);
 
-		if(primaryAxis.x > 0.0f)
-            MoveThrottle += ort * (primaryAxis.x * transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);
+		if(leftAxisX > 0.0f)
+			MoveThrottle += ort * (leftAxisX * moveInfluence * BackAndSideDampen * Vector3.right);
 
-		Vector2 secondaryAxis = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
+		float rightAxisX = OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.RightXAxis);
 
-		euler.y += secondaryAxis.x * rotateInfluence;
+		//if I want my controller to look up and down also 
+
+		float rightAxisY = OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.RightYAxis);
+
+		euler.y += rightAxisX * rotateInfluence; 
+		euler.x -= rightAxisY * rotateInfluence; 
+
 
 		transform.rotation = Quaternion.Euler(euler);
 	}
@@ -351,10 +397,10 @@ public class OVRPlayerController : MonoBehaviour
 	/// </summary>
 	public bool Jump()
 	{
-		if (!Controller.isGrounded)
-			return false;
+		/* if (!Controller.isGrounded)
+			return false; */
 
-        MoveThrottle += new Vector3(0, transform.lossyScale.y * JumpForce, 0);
+		MoveThrottle += new Vector3(0, JumpForce, 0);
 
 		return true;
 	}
@@ -366,7 +412,7 @@ public class OVRPlayerController : MonoBehaviour
 	{
 		Controller.Move(Vector3.zero);
 		MoveThrottle = Vector3.zero;
-		FallSpeed = 0.0f;
+		//FallSpeed = 0.0f;
 	}
 
 	/// <summary>
