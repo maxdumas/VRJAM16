@@ -10,11 +10,14 @@ public class AdultAIController : Controller {
 
 	private AdultMovement _mvmt;
 	private Insect _insect;
+
+	private Animator _animC;
 	
 	// Use this for initialization
 	void Start () {
 		_mvmt = GetComponent<AdultMovement> ();
 		_insect = GetComponent<Insect> ();
+		_animC = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +26,7 @@ public class AdultAIController : Controller {
 			if(!_acquiringTarget) {
 				StartCoroutine(AcquireTargetCoroutine());
 				_acquiringTarget = true;
+				_animC.SetTrigger("SoftFly");
 			}
 		} else if (!_mvmt.MoveTowardsTarget (_target)) {
 			_target = null;
@@ -33,6 +37,7 @@ public class AdultAIController : Controller {
 		yield return new WaitForSeconds(Random.value * 2f);
 		_target = AcquireTarget ();
 		_acquiringTarget = false;
+		_animC.SetTrigger("DashFly");
 	}
 
 	private Vector3 AcquireTarget () {
@@ -53,7 +58,9 @@ public class AdultAIController : Controller {
 			}
 		} else {
 			// Attempt freedom
+			_animC.SetTrigger("HardFly");
 			return GameObject.FindGameObjectWithTag("Exit").transform.position;
+
 		}
 	}
 

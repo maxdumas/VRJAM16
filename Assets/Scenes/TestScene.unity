@@ -717,23 +717,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
   m_PrefabInternal: {fileID: 1707638750}
---- !u!95 &1640058703
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1640058702}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 46e74722f31842a40bbdb57e7c9588de, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1675418228
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,38 +828,6 @@ Prefab:
     - target: {fileID: 487850, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 191716, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_Name
-      value: AdultWingTopRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 131434, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_Name
-      value: AdultWingTopLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 184378, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 184378, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_Name
-      value: AdultWingBotLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 122514, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_Name
-      value: AdultWingBotRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 129794, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 129794, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_Name
-      value: Body
-      objectReference: {fileID: 0}
-    - target: {fileID: 181538, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
-      propertyPath: m_Name
-      value: Eyes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
