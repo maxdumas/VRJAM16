@@ -4,22 +4,19 @@ using System.Collections;
 public class NymphPlayerController : MonoBehaviour {
 		
 	public NymphReticle reticle;
-		
-	public float MaximumSpeed = 50.0F;
+
+	private NymphMovement _mvmt;
+	private bool _isMoving;
 
 	void Start () {
-	}
-	
-	IEnumerator Movement(Vector3 destination) {
-		while(!transform.position.Equals(destination)) {
-			transform.position = Vector3.MoveTowards(transform.position, destination, MaximumSpeed * Time.deltaTime);
-			yield return null;
-		}
+		_mvmt = GetComponent<NymphMovement> ();
 	}
 
 	void Update () {
-		if (Input.GetButtonDown ("Fire1") && reticle.TargetIsValid) {
-			StartCoroutine(Movement(reticle.ReticleSpawn.transform.position));
+		if (_isMoving) {
+			_isMoving = !_mvmt.JumpToTarget(reticle.ReticleSpawn.transform.position);
+		} else if (Input.GetButtonDown ("Fire1") && reticle.TargetIsValid) {
+			_isMoving = true;
 		}
 	}
 }

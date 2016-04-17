@@ -92,6 +92,8 @@ GameObject:
   - 114: {fileID: 11456518}
   - 95: {fileID: 9521872}
   - 65: {fileID: 6574138}
+  - 114: {fileID: 11493036}
+  - 114: {fileID: 11494790}
   m_Layer: 0
   m_Name: nymphModel
   m_TagString: Nymph
@@ -496,6 +498,29 @@ MonoBehaviour:
   Larva: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
   Nymph: {fileID: 190576}
   Adult: {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
+--- !u!114 &11493036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9827162a93f4443aee3693f1ec6694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11494790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37af1e1217e5b5442b57f20c6ab0295f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaximumSpeed: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

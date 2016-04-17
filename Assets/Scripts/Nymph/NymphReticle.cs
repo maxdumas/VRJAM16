@@ -14,33 +14,42 @@ public class NymphReticle : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		_defaultColor = ReticleSpawn.material.color;
+		if (ReticleSpawn != null) {
+			_defaultColor = ReticleSpawn.material.color;
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (TargetIsValid) {
-			ReticleSpawn.material.color = _defaultColor;
-		} else {
-			ReticleSpawn.material.color = InvalidTargetColor;
-		}
+		if (ReticleSpawn != null) {
+			if (TargetIsValid) {
+				ReticleSpawn.material.color = _defaultColor;
+			} else {
+				ReticleSpawn.material.color = InvalidTargetColor;
+			}
 
-		ReticleSpawn.transform.position = FindReticlePosition ();
-		ReticleSpawn.transform.LookAt (ReticleSpawn.transform.position);
+			ReticleSpawn.transform.position = GetTarget ();
+			ReticleSpawn.transform.LookAt (ReticleSpawn.transform.position);
+		} else {
+			GetTarget();
+		}
 	}
 
-	Vector3 FindReticlePosition () {
-		Vector3 fwd = transform.forward;
+	public bool IsTargetValid (Vector3 direction) {
 		RaycastHit hitInfo = new RaycastHit();
-		Vector3 showPos;
 		
-		Debug.DrawRay(ReticleSpawn.transform.position, fwd, Color.green);
-		if (Physics.Raycast(transform.position, fwd, out hitInfo) && hitInfo.distance < ProjectionThreshold) {
+		return Physics.Raycast (transform.position, direction, out hitInfo) && hitInfo.distance < ProjectionThreshold;
+	}
+
+	private Vector3 GetTarget () {
+		RaycastHit hitInfo = new RaycastHit();
+		
+		if (Physics.Raycast(transform.position, transform.forward, out hitInfo) && hitInfo.distance < ProjectionThreshold) {
 			TargetIsValid = true;
 			return hitInfo.point;
 		} else {
 			TargetIsValid = false;
-			return transform.position + fwd * DefaultProjectionDistance;
+			return transform.position + transform.forward * DefaultProjectionDistance;
 		}
 	}
 }
