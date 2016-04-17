@@ -568,7 +568,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 456896}
   - 114: {fileID: 11410478}
-  - 114: {fileID: 11427856}
   m_Layer: 2
   m_Name: OVRCameraRig
   m_TagString: Untagged
@@ -1022,7 +1021,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -54.9000015, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 422256}
@@ -2069,20 +2068,6 @@ MonoBehaviour:
   fadeInTexture: {fileID: 0}
   speedRotationIncrement: .0500000007
   layerName: Default
---- !u!114 &11427856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  queueAhead: 1
-  usePositionTracking: 1
-  resetTrackerOnLoad: 1
 --- !u!114 &11429278
 MonoBehaviour:
   m_ObjectHideFlags: 1
