@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 	public SpawnState _state;
 	//private int _score;
 	//private int _highScore;
+
 	public float _frequency = 1.5f;
 	public int _barrageChance = 5;
 	public float _barrageLength = 30.0f;
@@ -38,9 +39,9 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PoolMaster.PlayAudio("Music", true);
-		StartCoroutine ("SpawnStuff");
+		//StartCoroutine ("SpawnStuff");
 	}
-
+	/*
 	private IEnumerator SpawnStuff () {
 		while (true) {
 			switch (_state) {
@@ -73,7 +74,7 @@ public class GameController : MonoBehaviour {
 				yield return new WaitForEndOfFrame ();
 				break;
 			}
-		}
+		} 
 	}
 	
 	private void Init () {
@@ -94,7 +95,7 @@ public class GameController : MonoBehaviour {
 	//	}
 		
 		_state = SpawnState.Spawn;
-	}
+	} */
 
 	public void Update () {
 		if (Input.GetKey (KeyCode.Tab)) {
@@ -113,7 +114,7 @@ public class GameController : MonoBehaviour {
 			Debug.Log ("I'm spawning Adults!!");
 		}
 	}
-	
+	/*
 	private void Spawn () {
 		if (Random.Range (0, 100) < _swarmChance) {
 			int swarmSize = Random.Range (_swarmMin, _swarmMax);
