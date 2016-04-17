@@ -48,7 +48,6 @@ public class AdultAIController : Controller {
 	private Vector3 AcquireTarget () {
 		switch (_nextState) {
 		case PositionState.MURDER:
-			Debug.Log ("MURDER");
 			Vector3? closestLarva = getClosest(this.transform.position, GameObject.FindGameObjectsWithTag("Larva").Select(go => go.transform.position));
 			if (closestLarva.HasValue) {
 				var cv = (closestLarva.Value - this.transform.position);
@@ -62,7 +61,6 @@ public class AdultAIController : Controller {
 			_nextState = PositionState.IDLE;
 			return AcquireTarget();
 		case PositionState.IDLE:
-			Debug.Log ("IDLE");
 			if (Random.value < 0.1f) {
 				_nextState = PositionState.ATTEMPT_ESCAPE;
 			} else {
@@ -74,7 +72,6 @@ public class AdultAIController : Controller {
 				return _mediumAltitudeZone.ClosestPointOnBounds(transform.position);
 			}
 		case PositionState.ATTEMPT_ESCAPE:
-			Debug.Log ("ATTEMPT ESCAPE");
 			_animC.SetTrigger("HardFly");
 			_nextState = PositionState.IDLE;
 			return GameObject.FindGameObjectWithTag("Exit").transform.position;
