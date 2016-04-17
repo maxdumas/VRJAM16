@@ -3,9 +3,13 @@ using System.Collections;
 
 public class Boundary : MonoBehaviour {
 
-	void OnTriggerEnter2D(Collider2D col){
-		if(col.name.Contains("asteroid")){
+	void OnTriggerExit(Collider col){
+
+		if(col.tag != "Player"){
+			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning1");
 			PoolMaster.Despawn(col.gameObject);
+			PoolMaster.SpawnRandom ("Bugs", tPos);
+
 		}
 	}
 	
