@@ -47,9 +47,11 @@ GameObject:
   - 114: {fileID: 11473128}
   - 114: {fileID: 11453040}
   - 114: {fileID: 11497234}
+  - 114: {fileID: 11410530}
+  - 114: {fileID: 11429932}
   m_Layer: 2
   m_Name: OVRPlayerController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +82,7 @@ GameObject:
   - 81: {fileID: 8100000}
   - 20: {fileID: 2015248}
   - 114: {fileID: 11414578}
-  - 114: {fileID: 11442380}
+  - 114: {fileID: 11406686}
   m_Layer: 2
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -287,7 +289,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400006}
@@ -313,7 +315,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462066}
@@ -491,7 +493,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: .100000001
+  near clip plane: .0199999996
   far clip plane: 1000
   field of view: 90
   orthographic: 0
@@ -671,6 +673,22 @@ MonoBehaviour:
   animSpeed: 10
   animDistance: .0500000007
   waitTime: 10
+--- !u!114 &11406686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84060ec74608cfb45be00071816ccb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReticleSpawn: {fileID: 0}
+  DefaultProjectionDistance: 5
+  ProjectionThreshold: 20
+  TargetIsValid: 0
+  InvalidTargetColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &11408204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -687,6 +705,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11410530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f4e38fa947dc5488a4da5ad1d7e365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reticle: {fileID: 11406686}
 --- !u!114 &11414578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -700,6 +730,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 2
   fadeColor: {r: .00999999978, g: .00999999978, b: .00999999978, a: 1}
+--- !u!114 &11429932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37af1e1217e5b5442b57f20c6ab0295f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaximumSpeed: 1
 --- !u!114 &11436736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -721,21 +763,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11442380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f4e38fa947dc5488a4da5ad1d7e365, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reticle: {fileID: 0}
-  speed: 1
-  startTime: 0
-  journeyLength: 0
 --- !u!114 &11453040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -846,7 +873,7 @@ CharacterController:
   m_StepOffset: .300000012
   m_SkinWidth: .00999999978
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!222 &22226360
 CanvasRenderer:
   m_ObjectHideFlags: 1
