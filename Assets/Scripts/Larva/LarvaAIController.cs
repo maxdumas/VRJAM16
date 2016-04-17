@@ -16,7 +16,7 @@ public class LarvaAIController : Controller {
 	void Start () {
 		_mvmt = GetComponent<LarvaMovement> ();
 		_insect = GetComponent<Insect> ();
-		DefaultSpeed = Random.Range (0.03f, 0.3f);
+		DefaultSpeed = Random.Range (0.01f, 0.2f);
 		MovementSpeed = DefaultSpeed;
 	}
 

@@ -95,6 +95,24 @@ public class GameController : MonoBehaviour {
 		
 		_state = SpawnState.Spawn;
 	}
+
+	public void Update () {
+		if (Input.GetKey (KeyCode.Tab)) {
+			Vector3 tPos4 = PoolMaster.GetRandomSpawnPoint ("LarvaSpawn");
+			PoolMaster.Spawn ("Bugs", "larvaModel", tPos4);
+			Debug.Log ("I'm spawning Larva!!");
+		}
+		if (Input.GetKey (KeyCode.CapsLock)) {
+			Vector3 tPos3 = PoolMaster.GetRandomSpawnPoint("NymphSpawn");
+			PoolMaster.Spawn ("Bugs", "nymphModel", tPos3);
+			Debug.Log ("I'm spawning Nymphs!!");
+		}
+		if (Input.GetKey (KeyCode.LeftShift)) {
+			Vector3 tPos1 = PoolMaster.GetRandomSpawnPoint("AdultSpawn");
+			PoolMaster.Spawn ("Bugs", "adultModel", tPos1);
+			Debug.Log ("I'm spawning Adults!!");
+		}
+	}
 	
 	private void Spawn () {
 		if (Random.Range (0, 100) < _swarmChance) {

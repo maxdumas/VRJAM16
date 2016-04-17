@@ -32,9 +32,11 @@ public class Insect : MonoBehaviour {
 	void evolve () {
 		Destroy (this.gameObject);
 		if (Stage == Stage.Larva) {
-			Instantiate (Nymph, transform.position, transform.rotation);
+			PoolMaster.Spawn ("Bugs", "nymphModel", transform.position, transform.rotation);
+			//Instantiate (Nymph, transform.position, transform.rotation);
 		} else if (Stage == Stage.Nymph) {
-			Instantiate (Nymph, transform.position, transform.rotation);
+			PoolMaster.Spawn ("Bugs", "nymphModel", transform.position, transform.rotation);
+			//Instantiate (Nymph, transform.position, transform.rotation);
 		}
 	}
 
