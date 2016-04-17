@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 public class NymphAIController : Controller {
-	private NymphReticle _reticle;
+	private Reticle _reticle;
 	private Vector3? _target;
 	private bool _acquiringTarget;
 	private NymphMovement _mvmt;
@@ -15,7 +15,7 @@ public class NymphAIController : Controller {
 
 	// Use this for initialization
 	void Start () {
-		_reticle = GetComponent<NymphReticle> ();
+		_reticle = GetComponent<Reticle> ();
 		_mvmt = GetComponent<NymphMovement> ();
 	}
 

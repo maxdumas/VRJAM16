@@ -94,8 +94,8 @@ GameObject:
   - 114: {fileID: 11493036}
   - 114: {fileID: 11494790}
   - 114: {fileID: 11429644}
-  - 54: {fileID: 5466054}
-  - 64: {fileID: 6420500}
+  - 136: {fileID: 13645196}
+  - 54: {fileID: 5432698}
   m_Layer: 0
   m_Name: nymphModel
   m_TagString: Nymph
@@ -456,7 +456,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196822}
   m_Mesh: {fileID: 4300004, guid: 13f21014aac16a44f8d31fdf2a0276d4, type: 3}
---- !u!54 &5466054
+--- !u!54 &5432698
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -466,23 +466,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6420500
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 190576}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 4300000, guid: 13f21014aac16a44f8d31fdf2a0276d4, type: 3}
 --- !u!95 &9521872
 Animator:
   serializedVersion: 3
@@ -555,6 +543,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaximumSpeed: 20
+--- !u!136 &13645196
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 2.08999991
+  m_Direction: 2
+  m_Center: {x: 0, y: .349999994, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

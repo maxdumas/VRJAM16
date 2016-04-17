@@ -79,7 +79,7 @@ GameObject:
   - 114: {fileID: 11485790}
   - 95: {fileID: 9582320}
   - 65: {fileID: 6534370}
-  - 54: {fileID: 5466308}
+  - 54: {fileID: 5478770}
   m_Layer: 0
   m_Name: adultModel
   m_TagString: Adult
@@ -427,7 +427,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191716}
   m_Mesh: {fileID: 4300004, guid: b37e39fdcc7ac3c448139c1e50befb20, type: 3}
---- !u!54 &5466308
+--- !u!54 &5478770
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -437,8 +437,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

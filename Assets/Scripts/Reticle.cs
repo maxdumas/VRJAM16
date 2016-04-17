@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NymphReticle : MonoBehaviour {
+public class Reticle : MonoBehaviour {
 	public Renderer ReticleSpawn;
 
 	public Vector3 Target;

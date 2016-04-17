@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class NymphPlayerController : MonoBehaviour {
 		
-	public NymphReticle reticle;
+	public Reticle reticle;
 
 	private NymphMovement _mvmt;
 	private bool _isMoving;
