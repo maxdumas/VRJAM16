@@ -18,7 +18,7 @@ public class LarvaAIController : Controller {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		var allFood = GameObject.FindGameObjectsWithTag ("Food").Select(go => go.GetComponent<Food>());
 		var allAdults = GameObject.FindGameObjectsWithTag ("Adult").Select(go => go.GetComponent<Insect>());
 		Vector3 direction = getMovementDir (allFood, allAdults);
