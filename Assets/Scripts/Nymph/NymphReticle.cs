@@ -4,6 +4,7 @@ using System.Collections;
 public class NymphReticle : MonoBehaviour {
 	public Renderer ReticleSpawn;
 
+	public Vector3 Target;
 	public float DefaultProjectionDistance = 5f;
 	public float ProjectionThreshold = 20f;
 	public bool TargetIsValid;
@@ -28,10 +29,10 @@ public class NymphReticle : MonoBehaviour {
 				ReticleSpawn.material.color = InvalidTargetColor;
 			}
 
-			ReticleSpawn.transform.position = GetTarget ();
+			Target = ReticleSpawn.transform.position = GetTarget ();
 			ReticleSpawn.transform.LookAt (ReticleSpawn.transform.position);
 		} else {
-			GetTarget();
+			Target = GetTarget();
 		}
 	}
 

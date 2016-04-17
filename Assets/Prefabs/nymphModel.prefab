@@ -94,6 +94,7 @@ GameObject:
   - 65: {fileID: 6574138}
   - 114: {fileID: 11493036}
   - 114: {fileID: 11494790}
+  - 114: {fileID: 11429644}
   m_Layer: 0
   m_Name: nymphModel
   m_TagString: Nymph
@@ -483,6 +484,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11429644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84060ec74608cfb45be00071816ccb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReticleSpawn: {fileID: 0}
+  DefaultProjectionDistance: 5
+  ProjectionThreshold: 20
+  TargetIsValid: 0
+  InvalidTargetColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &11456518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,6 +557,18 @@ Prefab:
       propertyPath: Larva
       value: 
       objectReference: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+    - target: {fileID: 0}
+      propertyPath: InvalidTargetColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InvalidTargetColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InvalidTargetColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 190576}

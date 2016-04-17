@@ -126,6 +126,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bcdf040e3180c941899173a00555168, type: 2}
   m_IsPrefabParent: 0
@@ -133,6 +137,22 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 190576, guid: 1a6ec4afb40f2d04c884487117efccb2, type: 2}
   m_PrefabInternal: {fileID: 1868853890}
+--- !u!114 &290806306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 290806305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84060ec74608cfb45be00071816ccb6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReticleSpawn: {fileID: 677852814}
+  DefaultProjectionDistance: 5
+  ProjectionThreshold: 20
+  TargetIsValid: 0
+  InvalidTargetColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1001 &322181035
 Prefab:
   m_ObjectHideFlags: 0
@@ -259,7 +279,7 @@ GameObject:
   - 33: {fileID: 677852815}
   - 23: {fileID: 677852814}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: ReticleSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,6 +595,10 @@ Prefab:
       propertyPath: pools.Array.data[2].name
       value: Bugs
       objectReference: {fileID: 0}
+    - target: {fileID: 179524, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13f2588d564790342a267ac07600504c, type: 2}
   m_IsPrefabParent: 0
@@ -701,7 +725,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11400010, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: useProfileData

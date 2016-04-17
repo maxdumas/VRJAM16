@@ -16,6 +16,7 @@ public class NymphMovement : MonoBehaviour {
 	}
 
 	public bool JumpToTarget(Vector3 target) {
+		Debug.Log ("I am call");
 		transform.position = Vector3.MoveTowards(transform.position, target, MaximumSpeed * Time.deltaTime);
 		return Vector3.Distance (transform.position, target) < Vector3.kEpsilon;
 	}
