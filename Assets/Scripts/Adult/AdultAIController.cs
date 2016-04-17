@@ -80,13 +80,15 @@ public class AdultAIController : Controller {
 		throw new UnityException ("SHIT IS FUCKEC");
 	}
 
-	public void OnCollisionEnter (Collision collision) {
+	public void OnTriggerEnter (Collider other) {
 		// If we hit another insect...
-		var otherInsect = collision.gameObject.GetComponent<Insect> ();
+		var otherInsect = other.gameObject.GetComponent<Insect> ();
 		if (otherInsect != null) {
 			// And it's an adult...
 			if (otherInsect.Stage == Stage.Nymph) {
-				PoolMaster.Despawn(this.gameObject); // We are eaten!
+//				PoolMaster.Despawn(this.gameObject); // We are eaten!
+				Debug.Log ("I AM DIE");
+				Destroy (this.gameObject);
 			} else if (otherInsect.Stage == Stage.Larva) {
 				_insect.Strength += 1;
 			}

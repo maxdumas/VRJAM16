@@ -43,18 +43,15 @@ public class NymphAIController : Controller {
 
 		transform.rotation = Quaternion.AngleAxis(Random.value * 360f, transform.up);
 		if (_reticle.TargetIsValid) {
-			Debug.Log ("Just gonna move forward I expect");
 			return _reticle.Target;
 		}
 
-		Debug.Log ("No valid target could be found");
 		return null;
 	}
 
 	void Update () {
 		if (_target == null) {
 			if (!_acquiringTarget) {
-				Debug.Log ("Gonna try to get a new target");
 				// If we jumped off from somewhere previously, next we want to return to from where we off-jamped!
 				if (_jumpingOffPoint != null) {
 					_target = _jumpingOffPoint;
@@ -64,7 +61,6 @@ public class NymphAIController : Controller {
 				}
 			}
 		} else if (_mvmt.JumpToTarget (_target.Value)) {
-			Debug.Log ("We're done movin'!");
 			_target = null;
 		}
 	}

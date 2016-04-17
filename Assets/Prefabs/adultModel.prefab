@@ -79,6 +79,7 @@ GameObject:
   - 114: {fileID: 11485790}
   - 95: {fileID: 9582320}
   - 65: {fileID: 6534370}
+  - 54: {fileID: 5466308}
   m_Layer: 0
   m_Name: adultModel
   m_TagString: Adult
@@ -234,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.26999998, y: -.0741842985, z: .370000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 428730}
@@ -426,6 +427,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191716}
   m_Mesh: {fileID: 4300004, guid: b37e39fdcc7ac3c448139c1e50befb20, type: 3}
+--- !u!54 &5466308
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166246}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6534370
 BoxCollider:
   m_ObjectHideFlags: 1
