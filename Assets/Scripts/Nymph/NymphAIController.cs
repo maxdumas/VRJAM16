@@ -17,9 +17,11 @@ public class NymphAIController : Controller {
 	void Start () {
 		_reticle = GetComponent<Reticle> ();
 		_mvmt = GetComponent<NymphMovement> ();
+		_animC = GetComponent<Animator> ();
 	}
 
 	private IEnumerator AcquireTargetCoroutine() {
+		_animC.SetTrigger("Twitching");
 		_acquiringTarget = true;
 		yield return new WaitForSeconds(0.5f);
 		_target = AcquireTarget ();
@@ -37,6 +39,7 @@ public class NymphAIController : Controller {
 		var closestAdult = getClosest (transform.position, allAdults.Select (a => a.transform.position));
 		if (closestAdult.HasValue && _reticle.IsTargetValid(closestAdult.Value - transform.position)) { 
 			Debug.Log ("Gonna try to get that adult there");
+			_animC.SetTrigger("Jumping");
 			_jumpingOffPoint = transform.position;
 			return closestAdult.Value;
 		} 
@@ -61,6 +64,7 @@ public class NymphAIController : Controller {
 				}
 			}
 		} else if (_mvmt.JumpToTarget (_target.Value)) {
+			_animC.SetTrigger("Idling");
 			_target = null;
 		}
 	}
