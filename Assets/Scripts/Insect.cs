@@ -24,6 +24,12 @@ public class Insect : MonoBehaviour {
 		}
 	}
 
+	private bool _isAlive = true;
+	public bool IsAlive {
+		get { return _isAlive; }
+		set { _isAlive = value; }
+	}
+
 	bool shouldEvolve () {
 		return Strength > NYMPH_MIN_STRENGTH && Stage == Stage.Larva ||
 			Strength > ADULT_MIN_STRENGTH && Stage == Stage.Nymph;
