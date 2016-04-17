@@ -91,6 +91,7 @@ GameObject:
   - 4: {fileID: 458022}
   - 114: {fileID: 11456518}
   - 95: {fileID: 9521872}
+  - 65: {fileID: 6574138}
   m_Layer: 0
   m_Name: nymphModel
   m_TagString: Nymph
@@ -451,6 +452,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196822}
   m_Mesh: {fileID: 4300004, guid: 13f21014aac16a44f8d31fdf2a0276d4, type: 3}
+--- !u!65 &6574138
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.92999995, y: .800000012, z: .879999995}
+  m_Center: {x: 0, y: .409999996, z: 0}
 --- !u!95 &9521872
 Animator:
   serializedVersion: 3
