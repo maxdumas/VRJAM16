@@ -104,7 +104,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 464928, guid: 3bcdf040e3180c941899173a00555168, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.73999977
       objectReference: {fileID: 0}
     - target: {fileID: 464928, guid: 3bcdf040e3180c941899173a00555168, type: 2}
       propertyPath: m_LocalRotation.x
@@ -125,18 +125,6 @@ Prefab:
     - target: {fileID: 464928, guid: 3bcdf040e3180c941899173a00555168, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11494336, guid: 3bcdf040e3180c941899173a00555168, type: 2}
-      propertyPath: Nymph
-      value: 
-      objectReference: {fileID: 290806305}
-    - target: {fileID: 11494336, guid: 3bcdf040e3180c941899173a00555168, type: 2}
-      propertyPath: Adult
-      value: 
-      objectReference: {fileID: 1640058702}
-    - target: {fileID: 11426916, guid: 3bcdf040e3180c941899173a00555168, type: 2}
-      propertyPath: DangerDistance
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bcdf040e3180c941899173a00555168, type: 2}
@@ -370,10 +358,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 100012, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
   m_PrefabInternal: {fileID: 1360803212}
---- !u!4 &798993632 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400012, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
-  m_PrefabInternal: {fileID: 1360803212}
 --- !u!114 &798993636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,14 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f4e38fa947dc5488a4da5ad1d7e365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ReticleSpawn: {fileID: 798993632}
-  reticle: {fileID: 677852813}
-  player: {fileID: 969106463}
-  speed: 1
-  startTime: 0
-  journeyLength: 0
-  wF: 5
-  moving: 0
+  reticle: {fileID: 0}
 --- !u!1001 &833715579
 Prefab:
   m_ObjectHideFlags: 0

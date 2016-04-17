@@ -32,13 +32,12 @@ public class LarvaAIController : Controller {
 
 	Vector3 getMovementDir (IEnumerable<Food> food, IEnumerable<Insect> adults) {
 		var closestAdult = getClosest (this.transform.position, adults.Select(a => a.transform.position));
-		//Debug.Log (closestAdult);
 		if (closestAdult.HasValue) {
 			var connectorVector = closestAdult.Value - this.transform.position;
 			// If the closest adult is close enough that it is dangerous, move away from them
 			if (connectorVector.magnitude <= DangerDistance) {
-				//Debug.Log ("LOL");
-				return (connectorVector * -1).normalized;
+				// Reset the y component of the direction to prevent larva from leaving the floor
+				return Vector3.Scale(connectorVector, new Vector3 (-1f, 0f, -1f)).normalized;
 			} 
 		}
 		var closestFood = getClosest (this.transform.position, food.Select (f => f.transform.position));
