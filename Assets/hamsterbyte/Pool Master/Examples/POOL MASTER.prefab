@@ -47,12 +47,15 @@ MonoBehaviour:
   - All
   handleMode: 2
   spawnGroups:
-  - name: MySpawning1
+  - name: FoodSpawn
     spawnPoints:
-    - {x: 0, y: 3.67703056, z: 0}
-    - {x: 33.6202431, y: 12.9480972, z: 26.374733}
-    - {x: 36.9852409, y: 0, z: 19.6926594}
-    handleColor: {r: .625, g: .25275737, b: .25275737, a: 1}
+    - {x: 12.8494215, y: 9.48208427, z: 25.8185673}
+    - {x: 24.5996056, y: 12.9480972, z: 9.79411888}
+    - {x: 15.3660593, y: 15.6022816, z: -7.60694885}
+    - {x: .645317435, y: 3.06594849, z: 19.2194309}
+    - {x: -3.01443672, y: 5.04054451, z: -3.10206556}
+    - {x: 4.18587542, y: 6.11166286, z: 7.60222721}
+    handleColor: {r: .654411793, g: .654411793, b: .654411793, a: 1}
     HandleShapes:
     - Sphere
     - Cube
@@ -60,18 +63,45 @@ MonoBehaviour:
     - Diamond
     handleShape: 0
     showHandles: 1
-  - name: MySpawning2
+  - name: AdultSpawn
     spawnPoints:
-    - {x: -10.4074593, y: 6.37786293, z: 31.6374397}
-    - {x: -3.1486001, y: 8.9622612, z: 3.45230293}
-    - {x: 29.3252869, y: 0, z: -18.6994095}
-    handleColor: {r: 1, g: .463235319, b: .463235319, a: 1}
+    - {x: -13.2369843, y: 12.3800869, z: -5.21426487}
+    - {x: 19.3671207, y: 12.997282, z: -17.4600334}
+    - {x: 24.8669357, y: 21.6731205, z: 20.8499107}
+    handleColor: {r: 1, g: 0, b: 0, a: 1}
     HandleShapes:
     - Sphere
     - Cube
     - Cone
     - Diamond
     handleShape: 3
+    showHandles: 1
+  - name: NymphSpawn
+    spawnPoints:
+    - {x: -12.5125046, y: .659808159, z: -8.04092216}
+    - {x: .553073049, y: 2.24057293, z: 2.50815082}
+    - {x: 20.8431587, y: 1.98854256, z: -22.5292168}
+    handleColor: {r: 0, g: .379310369, b: 1, a: 1}
+    HandleShapes:
+    - Sphere
+    - Cube
+    - Cone
+    - Diamond
+    handleShape: 0
+    showHandles: 1
+  - name: LarvaSpawn
+    spawnPoints:
+    - {x: 7.63603401, y: 0, z: -9.3173151}
+    - {x: -12.7974491, y: 0, z: 11.6635036}
+    - {x: 3.72594929, y: 0, z: -26.4439335}
+    - {x: 0, y: 3.19000006, z: 0}
+    handleColor: {r: 1, g: .8482759, b: 0, a: 1}
+    HandleShapes:
+    - Sphere
+    - Cube
+    - Cone
+    - Diamond
+    handleShape: 0
     showHandles: 1
 --- !u!114 &11422152
 MonoBehaviour:
@@ -85,43 +115,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - name: Projectiles
-    uniquePool:
-    - {fileID: 100000, guid: 6a832662199bccb489633475187dbc86, type: 2}
-    maxBuffer: 1
-    bufferAmount: 01000000
-    pool: []
-    alwaysMax: 01
-    activeCount: 
-    totalActive: 0
-    preload: 0
-    persistent: 0
-    hasLoaded: 0
-    hide: 1
-  - name: Particles
-    uniquePool:
-    - {fileID: 100004, guid: d99fe9fb8360d3c4099eb57e6f5ad28f, type: 2}
-    maxBuffer: 1
-    bufferAmount: 01000000
-    pool: []
-    alwaysMax: 01
-    activeCount: 
-    totalActive: 0
-    preload: 0
-    persistent: 0
-    hasLoaded: 0
-    hide: 0
   - name: Bugs
     uniquePool:
-    - {fileID: 0}
+    - {fileID: 168614, guid: cae1babf4b501f248904f9e15c0dc940, type: 2}
     - {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
-    - {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
-    - {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
-    - {fileID: 0}
-    maxBuffer: 1
-    bufferAmount: 0100000001000000010000000100000001000000
+    - {fileID: 190576, guid: 1a6ec4afb40f2d04c884487117efccb2, type: 2}
+    - {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
+    maxBuffer: 5
+    bufferAmount: 05000000050000000500000005000000
     pool: []
-    alwaysMax: 0101010101
+    alwaysMax: 01010101
     activeCount: 
     totalActive: 0
     preload: 0

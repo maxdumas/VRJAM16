@@ -8,7 +8,9 @@ public class Boundary : MonoBehaviour {
 		if(col.tag != "Player"){
 			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("LarvaSpawn");
 			PoolMaster.Despawn(col.gameObject);
-			PoolMaster.SpawnRandom (new string[]{"larvaModel"}, tPos);
+
+			//PoolMaster.SpawnRandom (new string[]{"larvaModel"}, tPos);
+			//PoolMaster.SpawnRandom ("larvaModel", tPos);
 
 		}
 	}
