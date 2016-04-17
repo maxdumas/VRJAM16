@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 414484}
   - 114: {fileID: 11422152}
   - 114: {fileID: 11434866}
-  - 114: {fileID: 11447716}
+  - 114: {fileID: 11416296}
   m_Layer: 0
   m_Name: POOL MASTER
   m_TagString: Untagged
@@ -30,6 +30,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11416296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96eb56dbd5bea94391c9d0b7493f588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandleModes:
+  - None
+  - Selective
+  - All
+  handleMode: 2
+  spawnGroups:
+  - name: MySpawning1
+    spawnPoints:
+    - {x: 0, y: 3.67703056, z: 0}
+    - {x: 33.6202431, y: 12.9480972, z: 26.374733}
+    - {x: 36.9852409, y: 0, z: 19.6926594}
+    handleColor: {r: .625, g: .25275737, b: .25275737, a: 1}
+    HandleShapes:
+    - Sphere
+    - Cube
+    - Cone
+    - Diamond
+    handleShape: 0
+    showHandles: 1
+  - name: MySpawning2
+    spawnPoints:
+    - {x: -10.4074593, y: 6.37786293, z: 31.6374397}
+    - {x: -3.1486001, y: 8.9622612, z: 3.45230293}
+    - {x: 29.3252869, y: 0, z: -18.6994095}
+    handleColor: {r: 1, g: .463235319, b: .463235319, a: 1}
+    HandleShapes:
+    - Sphere
+    - Cube
+    - Cone
+    - Diamond
+    handleShape: 3
+    showHandles: 1
 --- !u!114 &11422152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,16 +111,17 @@ MonoBehaviour:
     persistent: 0
     hasLoaded: 0
     hide: 0
-  - name: Asteroids
+  - name: Bugs
     uniquePool:
-    - {fileID: 100000, guid: 817e2ce28988f4449bc07fcffb0190fa, type: 2}
-    - {fileID: 100000, guid: 93701fc00d977cc40ac2e4299fa5ef43, type: 2}
-    - {fileID: 100000, guid: aeb394ea21fc92844ada4de7fca07e2b, type: 2}
-    - {fileID: 100000, guid: fa07436a9f2a3164f91e5dbcb9118210, type: 2}
+    - {fileID: 0}
+    - {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+    - {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+    - {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+    - {fileID: 0}
     maxBuffer: 1
-    bufferAmount: 01000000010000000100000001000000
+    bufferAmount: 0100000001000000010000000100000001000000
     pool: []
-    alwaysMax: 01010101
+    alwaysMax: 0101010101
     activeCount: 
     totalActive: 0
     preload: 0
@@ -163,47 +207,6 @@ MonoBehaviour:
   clipLimit: 320000003200000032000000
   activeClips: 0
   audioPersistence: 00000000
---- !u!114 &11447716
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96eb56dbd5bea94391c9d0b7493f588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HandleModes:
-  - None
-  - Selective
-  - All
-  handleMode: 2
-  spawnGroups:
-  - name: Spawn Points
-    spawnPoints:
-    - {x: -12.3822956, y: 14.8377581, z: 0}
-    - {x: -19.6595802, y: 10.7532244, z: 0}
-    handleColor: {r: 0, g: 1, b: .172413826, a: 1}
-    HandleShapes:
-    - Sphere
-    - Cube
-    - Cone
-    - Diamond
-    handleShape: 3
-    showHandles: 1
-  - name: Spawn Points 2
-    spawnPoints:
-    - {x: 12.3889837, y: 13.1212749, z: 0}
-    - {x: 1.36502552, y: 16.1560612, z: 0}
-    handleColor: {r: 1, g: 1, b: 1, a: 1}
-    HandleShapes:
-    - Sphere
-    - Cube
-    - Cone
-    - Diamond
-    handleShape: 2
-    showHandles: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

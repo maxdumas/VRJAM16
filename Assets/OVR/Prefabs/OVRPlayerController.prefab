@@ -44,6 +44,8 @@ GameObject:
   - 114: {fileID: 11400010}
   - 114: {fileID: 11462408}
   - 114: {fileID: 11493974}
+  - 114: {fileID: 11473128}
+  - 114: {fileID: 11453040}
   m_Layer: 0
   m_Name: OVRPlayerController
   m_TagString: Untagged
@@ -77,6 +79,7 @@ GameObject:
   - 81: {fileID: 8100000}
   - 20: {fileID: 2015248}
   - 114: {fileID: 11414578}
+  - 114: {fileID: 11442380}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -295,7 +298,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.40999997, y: 1.72000003, z: 3.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -499,6 +502,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -623,8 +627,7 @@ MonoBehaviour:
   RotationRatchet: 45
   HmdResetsY: 1
   HmdRotatesY: 1
-  GravityModifier: 1
-  useProfileData: 1
+  useProfileData: 0
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -717,6 +720,36 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11442380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f4e38fa947dc5488a4da5ad1d7e365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReticleSpawn: {fileID: 400012}
+  reticle: {fileID: 0}
+  player: {fileID: 100008}
+  speed: 1
+  startTime: 0
+  journeyLength: 0
+  reticleDist: 5
+  moving: 0
+--- !u!114 &11453040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ade57206299c8942a455aa0ebdee632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11462408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -732,6 +765,19 @@ MonoBehaviour:
   fadeInTexture: {fileID: 0}
   speedRotationIncrement: .0500000007
   layerName: Default
+--- !u!114 &11473128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f793035c3f0b40042b75b0cb759a459f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 3
+  lookDirection: {fileID: 400002}
 --- !u!114 &11484324
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -269,7 +269,7 @@ GameObject:
   - 23: {fileID: 2393896}
   m_Layer: 0
   m_Name: grate
-  m_TagString: Untagged
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1386,7 +1386,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194508}
-  m_LocalRotation: {x: -.678123236, y: .678123057, z: -.200371996, w: -.200372204}
+  m_LocalRotation: {x: -.678123295, y: .678123116, z: -.20037201, w: -.200372219}
   m_LocalPosition: {x: 31.5900002, y: 16.4599991, z: 5.07999992}
   m_LocalScale: {x: 1.45119679, y: 1.45119607, z: 1.45119607}
   m_Children:
@@ -1545,7 +1545,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181570}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.57155228, y: 20.3058147, z: 8.54243088}
+  m_LocalPosition: {x: 2.27999997, y: 19.4099998, z: -.219999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 469284}
@@ -2556,9 +2556,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.47000003
-  m_Range: 124.400002
+  m_Color: {r: 1, g: .988438129, b: .580882311, a: 1}
+  m_Intensity: 3.98000002
+  m_Range: 103.480003
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -2575,7 +2575,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 4.88999987
+  m_BounceIntensity: 2.4000001
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}

@@ -14,7 +14,7 @@ public class NymphPlayerController : MonoBehaviour {
 	public float startTime;
 	public float journeyLength;
 
-	public float wF = 5f;
+	public float reticleDist = 5f;
 
 	public bool moving = false;
 
@@ -43,12 +43,12 @@ public class NymphPlayerController : MonoBehaviour {
 		
 		if (Physics.Raycast(transform.position, fwd, out hitInfo)) {
 			showPos = hitInfo.point;
-			reticle.transform.LookAt(showPos);
+			//reticle.transform.LookAt(showPos);
 		}
 
 		else {
-			showPos = transform.position + fwd * wF;
-			reticle.transform.LookAt(showPos);
+			showPos = transform.position + fwd * reticleDist;
+			//reticle.transform.LookAt(showPos);
 		}
 		reticle.transform.position = showPos;
 		//reticle.transform.LookAt(showPos);
