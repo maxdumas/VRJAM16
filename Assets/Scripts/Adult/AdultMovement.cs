@@ -13,10 +13,7 @@ public class AdultMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		RaycastHit hitInfo;
-		if (Physics.Raycast(transform.position, Vector3.down, out hitInfo)) {
-			IsVulnerable = hitInfo.distance < VulnerabilityDistance;
-		}
+		IsVulnerable = transform.position.y < VulnerabilityDistance;
 	}
 
 	public bool MoveTowardsTarget (Vector3? target) {

@@ -5,9 +5,11 @@ public class NymphMovement : MonoBehaviour {
 
 	public float MaximumSpeed = 20.0F;
 
+	private Insect _insect;
+
 	// Use this for initialization
 	void Start () {
-	
+		_insect = GetComponent<Insect> ();
 	}
 	
 	// Update is called once per frame
@@ -19,5 +21,16 @@ public class NymphMovement : MonoBehaviour {
 		Debug.Log ("I am call");
 		transform.position = Vector3.MoveTowards(transform.position, target, MaximumSpeed * Time.deltaTime);
 		return Vector3.Distance (transform.position, target) < Vector3.kEpsilon;
+	}
+
+	public void OnCollisionEnter (Collision collision) {
+		// If we hit another insect...
+		var otherInsect = collision.gameObject.GetComponent<Insect> ();
+		if (otherInsect != null) {
+			// And it's an adult...
+			if (otherInsect.Stage == Stage.Adult) {
+				_insect.Strength += 1; // We eat them!!!!!!!!!!! >:)
+			}
+		}
 	}
 }
