@@ -11,13 +11,22 @@ public class LarvaAIController : Controller {
 	private LarvaMovement _mvmt;
 	private Insect _insect;
 
+	private Animator _animC;
+	
+	private bool almostMoving;
+	private bool almostIdling;
+
 
 	// Use this for initialization
 	void Start () {
 		_mvmt = GetComponent<LarvaMovement> ();
 		_insect = GetComponent<Insect> ();
+		_animC = GetComponent<Animator> ();
 		DefaultSpeed = Random.Range (0.01f, 0.2f);
 		MovementSpeed = DefaultSpeed;
+		almostMoving = false;
+		almostIdling = false;
+
 	}
 
 	// Update is called once per frame
@@ -37,19 +46,32 @@ public class LarvaAIController : Controller {
 			// If the closest adult is close enough that it is dangerous, move away from them
 			if (connectorVector.magnitude <= DangerDistance) {
 				// Reset the y component of the direction to prevent larva from leaving the floor
-				return Vector3.Scale(connectorVector, new Vector3 (-1f, 0f, -1f)).normalized;
+				if (almostMoving == true) {
+					_animC.SetTrigger("Moving");
+					almostMoving = false;
+					almostIdling = true;
+				}
 				MovementSpeed = DefaultSpeed * 1.8f;
+				return Vector3.Scale(connectorVector, new Vector3 (-1f, 0f, -1f)).normalized;
 			} 
+				else if (almostIdling == true) {
+					_animC.SetTrigger("Idling");
+					almostIdling = false;
+				}
+
 		}
 		var closestFood = getClosest (this.transform.position, food.Select (f => f.transform.position));
 		if (closestFood.HasValue) {
 			// Move towards the closest food
-			return (closestFood.Value - this.transform.position).normalized;
+			_animC.SetTrigger ("Moving");
 			MovementSpeed = DefaultSpeed * 1.3f;
-		} else {
-			return Vector3.zero;
-			MovementSpeed = DefaultSpeed;
+			return (closestFood.Value - this.transform.position).normalized;
 
+		} else {
+			MovementSpeed = DefaultSpeed;
+			almostMoving = true;
+			return Vector3.zero;
+			//_animC.SetTrigger("Idling");
 		}
 	}
 
