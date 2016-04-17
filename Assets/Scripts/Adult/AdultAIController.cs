@@ -8,6 +8,7 @@ public class AdultAIController : Controller {
 	private Collider _mediumAltitudeZone;
 	private Vector3? _target;
 	private bool _acquiringTarget = false;
+	private PositionState _nextState;
 
 	private AdultMovement _mvmt;
 	private Insect _insect;
@@ -45,28 +46,41 @@ public class AdultAIController : Controller {
 	}
 
 	private Vector3 AcquireTarget () {
-		float x = Random.value;
-		if (x < 0.33f) { // Derp
-			return _mediumAltitudeZone.ClosestPointOnBounds(transform.position);
-//			return transform.position + Random.onUnitSphere * MaxMovementRadius;
-		} else if (x < 0.66f) { // Murder
+		switch (_nextState) {
+		case PositionState.MURDER:
+			Debug.Log ("MURDER");
 			Vector3? closestLarva = getClosest(this.transform.position, GameObject.FindGameObjectsWithTag("Larva").Select(go => go.transform.position));
 			if (closestLarva.HasValue) {
 				var cv = (closestLarva.Value - this.transform.position);
 				if (cv.magnitude > MaxMovementRadius) {
 					return transform.position + cv.normalized * MaxMovementRadius;
 				} else {
+					_nextState = PositionState.IDLE;
 					return closestLarva.Value;
 				}
-			} else {
-				return Random.onUnitSphere * MaxMovementRadius;
 			}
-		} else {
-			// Attempt freedom
+			_nextState = PositionState.IDLE;
+			return AcquireTarget();
+		case PositionState.IDLE:
+			Debug.Log ("IDLE");
+			if (Random.value < 0.1f) {
+				_nextState = PositionState.ATTEMPT_ESCAPE;
+			} else {
+				_nextState = PositionState.MURDER;
+			}
+			if (_mediumAltitudeZone.bounds.Contains(transform.position)) {
+				return transform.position + Random.onUnitSphere * MaxMovementRadius;
+			} else {
+				return _mediumAltitudeZone.ClosestPointOnBounds(transform.position);
+			}
+		case PositionState.ATTEMPT_ESCAPE:
+			Debug.Log ("ATTEMPT ESCAPE");
 			_animC.SetTrigger("HardFly");
+			_nextState = PositionState.IDLE;
 			return GameObject.FindGameObjectWithTag("Exit").transform.position;
 
 		}
+		throw new UnityException ("SHIT IS FUCKEC");
 	}
 
 	public void OnCollisionEnter (Collision collision) {
@@ -80,5 +94,9 @@ public class AdultAIController : Controller {
 				_insect.Strength += 1;
 			}
 		}
+	}
+
+	private enum PositionState {
+		IDLE, ATTEMPT_ESCAPE, MURDER
 	}
 }
