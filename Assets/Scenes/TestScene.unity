@@ -126,6 +126,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bcdf040e3180c941899173a00555168, type: 2}
   m_IsPrefabParent: 0
@@ -235,7 +239,7 @@ MonoBehaviour:
   _swarmMax: 10
   _swarmMin: 3
   rangeMin: .100000001
-  rangeMax: 2.20000005
+  rangeMax: 15
 --- !u!4 &509821148
 Transform:
   m_ObjectHideFlags: 0
@@ -407,7 +411,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 969106463}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f793035c3f0b40042b75b0cb759a459f, type: 3}
   m_Name: 
@@ -420,7 +424,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 969106463}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ade57206299c8942a455aa0ebdee632, type: 3}
   m_Name: 
@@ -443,6 +447,14 @@ Prefab:
     - target: {fileID: 11422152, guid: 13f2588d564790342a267ac07600504c, type: 2}
       propertyPath: pools.Array.data[2].bufferAmount.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[1].spawnPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[0].spawnPoints.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 414484, guid: 13f2588d564790342a267ac07600504c, type: 2}
       propertyPath: m_LocalPosition.x
@@ -540,7 +552,40 @@ Prefab:
       propertyPath: pools.Array.data[2].name
       value: Bugs
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[0].name
+      value: MySpawning1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[1].name
+      value: MySpawning2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[0].handleColor.r
+      value: .988336802
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[0].handleColor.g
+      value: .154411793
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[0].handleColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[1].handleColor.r
+      value: .742647052
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[1].handleColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: spawnGroups.Array.data[1].handleColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11447716, guid: 13f2588d564790342a267ac07600504c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 13f2588d564790342a267ac07600504c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1152447355
@@ -713,6 +758,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!1 &1593438847 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 179524, guid: 13f2588d564790342a267ac07600504c, type: 2}
+  m_PrefabInternal: {fileID: 1024486735}
+--- !u!114 &1593438848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1593438847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96eb56dbd5bea94391c9d0b7493f588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandleModes:
+  - None
+  - Selective
+  - All
+  handleMode: 2
+  spawnGroups:
+  - name: MySpawning1
+    spawnPoints:
+    - {x: 0, y: 3.67703056, z: 0}
+    - {x: 24.5122795, y: 4.78889847, z: 9.98854256}
+    - {x: 0, y: 0, z: 0}
+    handleColor: {r: .625, g: .25275737, b: .25275737, a: 1}
+    HandleShapes:
+    - Sphere
+    - Cube
+    - Cone
+    - Diamond
+    handleShape: 0
+    showHandles: 1
+  - name: MySpawning2
+    spawnPoints:
+    - {x: 0, y: -4.46551895, z: 23.1135139}
+    - {x: 0, y: 0, z: 0}
+    - {x: 29.3252869, y: 0, z: -18.6994095}
+    handleColor: {r: 1, g: .463235319, b: .463235319, a: 1}
+    HandleShapes:
+    - Sphere
+    - Cube
+    - Cone
+    - Diamond
+    handleShape: 3
+    showHandles: 1
 --- !u!1 &1640058702 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
@@ -828,6 +920,10 @@ Prefab:
     - target: {fileID: 487850, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}

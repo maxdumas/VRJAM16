@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -100,15 +100,16 @@ public class GameController : MonoBehaviour {
 		if (Random.Range (0, 100) < _swarmChance) {
 			int swarmSize = Random.Range (_swarmMin, _swarmMax);
 			for (int i = 0; i < swarmSize; i++) {
-				Vector3 tPos = new Vector3 (Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax));
-				tPos = Camera.main.ViewportToWorldPoint (tPos);
-				tPos.z = 0;
+				//Vector3 tPos = new Vector3 (Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax));
+				//tPos = Camera.main.ViewportToWorldPoint (tPos);
+				//tPos.z = 0;
+				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning1");
 				PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
 			}
 		} else {
-			Vector3 tPos = new Vector3 (Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax));
-			tPos = Camera.main.ViewportToWorldPoint (tPos);
-			tPos.z = 0;
+			//tPos = Camera.main.ViewportToWorldPoint (tPos);
+			//tPos.z = 0;
+			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning2");
 			PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
 		}
 		_state = SpawnState.Wait;
@@ -125,15 +126,15 @@ public class GameController : MonoBehaviour {
 		if (Random.Range (0, 100) < _swarmChance) {
 			int swarmSize = Random.Range (_swarmMin, _swarmMax);
 			for (int i = 0; i < swarmSize; i++) {
-				Vector3 tPos = new Vector3 (Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax));
-				tPos = Camera.main.ViewportToWorldPoint (tPos);
-				tPos.z = 0;
+				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning2");
+				//tPos = Camera.main.ViewportToWorldPoint (tPos);
+				//tPos.z = 0;
 				PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
 			}
 		} else {
-			Vector3 tPos = new Vector3 (Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax));
-			tPos = Camera.main.ViewportToWorldPoint (tPos);
-			tPos.z = 0;
+			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning1");
+			//tPos = Camera.main.ViewportToWorldPoint (tPos);
+			//tPos.z = 0;
 			PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
 		}
 		_state = SpawnState.BarrageWait;

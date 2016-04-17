@@ -28,7 +28,7 @@ public class NymphPlayerController : MonoBehaviour {
 		journeyLength = Vector3.Distance(player.transform.position, showPos);
 		float distCovered = (Time.time - startTime) * speed;
 		float fracJourney = distCovered / journeyLength;
-		player.transform.position = Vector3.Lerp(player.transform.position, showPos, 0.5f);
+		player.transform.position = Vector3.Lerp(player.transform.position, showPos, 0.99f);
 
 		if (!player.transform.position.Equals(showPos)) {
 			yield return null;

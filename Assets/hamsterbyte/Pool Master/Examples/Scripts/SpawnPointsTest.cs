@@ -6,7 +6,7 @@ public class SpawnPointsTest : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log (PoolMaster.GetSpawnPoint("Spawn Points 2", 10));
+		//Debug.Log (PoolMaster.GetSpawnPoint("Spawn Points 2", 10));
 	}
 	
 	// Update is called once per frame
