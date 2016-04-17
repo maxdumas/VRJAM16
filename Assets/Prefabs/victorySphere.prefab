@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 443510}
   - 212: {fileID: 21226418}
+  - 114: {fileID: 11406956}
   m_Layer: 0
   m_Name: info4
   m_TagString: Untagged
@@ -25,6 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 465142}
   - 212: {fileID: 21230206}
+  - 114: {fileID: 11488210}
   m_Layer: 0
   m_Name: info2
   m_TagString: Untagged
@@ -191,6 +193,28 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 5.5999999, y: 5.59999943}
+--- !u!114 &11406956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2befa538ba90b43831f6eaf88e2d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11488210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2befa538ba90b43831f6eaf88e2d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &13521084
 SphereCollider:
   m_ObjectHideFlags: 1
