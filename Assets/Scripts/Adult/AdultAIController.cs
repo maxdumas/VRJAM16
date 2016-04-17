@@ -86,9 +86,7 @@ public class AdultAIController : Controller {
 		if (otherInsect != null) {
 			// And it's an adult...
 			if (otherInsect.Stage == Stage.Nymph) {
-//				PoolMaster.Despawn(this.gameObject); // We are eaten!
-				Debug.Log ("I AM DIE");
-				Destroy (this.gameObject);
+				PoolMaster.Despawn(this.gameObject); // We are eaten!
 			} else if (otherInsect.Stage == Stage.Larva) {
 				_insect.Strength += 1;
 			}
