@@ -10,14 +10,11 @@ public class LarvaAIController : Controller {
 	private LarvaMovement _mvmt;
 	private Insect _insect;
 
-	//private Animator _animC;
 
 	// Use this for initialization
 	void Start () {
 		_mvmt = GetComponent<LarvaMovement> ();
 		_insect = GetComponent<Insect> ();
-	//	_animC = GetComponent<Animator>();
-		//_animC.SetTrigger ("Idling");
 	}
 
 	// Update is called once per frame
