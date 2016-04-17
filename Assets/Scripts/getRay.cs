@@ -3,6 +3,9 @@ using System.Collections;
 
 public class getRay : MonoBehaviour {
 
+	public cutsceneManager csManager;
+	public int nextScene;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -16,6 +19,7 @@ public class getRay : MonoBehaviour {
 		if (GetComponent<Collider>().Raycast (ray, out hit, 10.0f)) {
 			if (Input.anyKey) {
 				//DO STUFF!
+				csManager.callCutscene(nextScene);
 			}
 		}
 	}
