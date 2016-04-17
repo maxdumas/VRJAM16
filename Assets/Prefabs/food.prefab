@@ -30,7 +30,7 @@ GameObject:
   - 114: {fileID: 11499070}
   - 54: {fileID: 5452528}
   m_Layer: 0
-  m_Name: wing
+  m_Name: food
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

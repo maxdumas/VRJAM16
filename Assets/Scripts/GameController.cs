@@ -103,14 +103,15 @@ public class GameController : MonoBehaviour {
 				//Vector3 tPos = new Vector3 (Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax));
 				//tPos = Camera.main.ViewportToWorldPoint (tPos);
 				//tPos.z = 0;
-				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning1");
-				PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
+				//SpawnFood
+				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("FoodSpawn");
+				PoolMaster.Spawn ("Bugs", "food", tPos);
 			}
 		} else {
 			//tPos = Camera.main.ViewportToWorldPoint (tPos);
 			//tPos.z = 0;
-			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning2");
-			PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
+			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("AdultSpawn");
+			PoolMaster.Spawn ("Bugs", "adultModel", tPos);
 		}
 		_state = SpawnState.Wait;
 	}
@@ -126,16 +127,16 @@ public class GameController : MonoBehaviour {
 		if (Random.Range (0, 100) < _swarmChance) {
 			int swarmSize = Random.Range (_swarmMin, _swarmMax);
 			for (int i = 0; i < swarmSize; i++) {
-				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning2");
+				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("NymphSpawn");
 				//tPos = Camera.main.ViewportToWorldPoint (tPos);
 				//tPos.z = 0;
-				PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
+				PoolMaster.Spawn ("Bugs", "nymphModel", tPos);
 			}
 		} else {
-			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("MySpawning1");
+			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("LarvaSpawn");
 			//tPos = Camera.main.ViewportToWorldPoint (tPos);
 			//tPos.z = 0;
-			PoolMaster.SpawnRandom (new string[]{"Bugs"}, tPos);
+			PoolMaster.Spawn ("Bugs", "larvaModel", tPos);
 		}
 		_state = SpawnState.BarrageWait;
 	}

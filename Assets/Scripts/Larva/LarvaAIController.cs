@@ -6,6 +6,7 @@ public class LarvaAIController : Controller {
 
 	public float DangerDistance;
 	public float MovementSpeed;
+	public float DefaultSpeed;
 
 	private LarvaMovement _mvmt;
 	private Insect _insect;
@@ -15,6 +16,8 @@ public class LarvaAIController : Controller {
 	void Start () {
 		_mvmt = GetComponent<LarvaMovement> ();
 		_insect = GetComponent<Insect> ();
+		DefaultSpeed = Random.Range (0.03f, 0.3f);
+		MovementSpeed = DefaultSpeed;
 	}
 
 	// Update is called once per frame
@@ -35,14 +38,18 @@ public class LarvaAIController : Controller {
 			if (connectorVector.magnitude <= DangerDistance) {
 				// Reset the y component of the direction to prevent larva from leaving the floor
 				return Vector3.Scale(connectorVector, new Vector3 (-1f, 0f, -1f)).normalized;
+				MovementSpeed = DefaultSpeed * 1.8f;
 			} 
 		}
 		var closestFood = getClosest (this.transform.position, food.Select (f => f.transform.position));
 		if (closestFood.HasValue) {
 			// Move towards the closest food
 			return (closestFood.Value - this.transform.position).normalized;
+			MovementSpeed = DefaultSpeed * 1.3f;
 		} else {
 			return Vector3.zero;
+			MovementSpeed = DefaultSpeed;
+
 		}
 	}
 
