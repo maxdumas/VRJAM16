@@ -3732,7 +3732,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 3cf964e0027c82a40b40b478eef03538, type: 3}
     - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
       propertyPath: audioVolumes.Array.data[2]
-      value: .639999986
+      value: .0799999982
       objectReference: {fileID: 0}
     - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
       propertyPath: audioVolumes.Array.data[0]
@@ -3765,6 +3765,10 @@ Prefab:
     - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
       propertyPath: audioPriorities.Array.data[0]
       value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPitches.Array.data[2]
+      value: .419999987
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13f2588d564790342a267ac07600504c, type: 2}
