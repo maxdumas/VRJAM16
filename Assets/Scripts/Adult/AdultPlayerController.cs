@@ -9,6 +9,8 @@ public class AdultPlayerController : Controller {
 	private Vector3? _target;
 	private Insect _insect;
 	
+
+
 	void Start () {
 		_mvmt = GetComponent<AdultMovement> ();
 	}

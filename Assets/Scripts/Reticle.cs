@@ -9,14 +9,14 @@ public class Reticle : MonoBehaviour {
 	public float ProjectionThreshold = 20f;
 	public bool TargetIsValid;
 
-	private Color _defaultColor;
+	public Color DefaultColor;
 	public Color InvalidTargetColor;
 
 	
 	// Use this for initialization
 	void Start () {
 		if (ReticleSpawn != null) {
-			_defaultColor = ReticleSpawn.material.color;
+			DefaultColor = ReticleSpawn.material.color;
 		}
 	}
 
@@ -24,7 +24,7 @@ public class Reticle : MonoBehaviour {
 	void Update () {
 		if (ReticleSpawn != null) {
 			if (TargetIsValid) {
-				ReticleSpawn.material.color = _defaultColor;
+				ReticleSpawn.material.color = DefaultColor;
 			} else {
 				ReticleSpawn.material.color = InvalidTargetColor;
 			}
