@@ -14,17 +14,19 @@ public class Insect : MonoBehaviour {
 
 	public bool isPlayer;
 
+	public cutsceneManager cM;
+
+
+
 	private int _strength;
 	public int Strength {
-	
-
-
 		get {
 			return _strength;
 		}
 
 		set {
 			_strength = value;
+			Debug.Log (_strength);
 			if(shouldEvolve()) {
 				evolve();
 			}
@@ -34,7 +36,13 @@ public class Insect : MonoBehaviour {
 	private bool _isAlive = true;
 	public bool IsAlive {
 		get { return _isAlive; }
-		set { _isAlive = value; }
+		set { 
+			_isAlive = value; 
+			if (_isAlive == false) {
+				cM.callCutscene(6);
+			}
+		}
+
 	}
 
 	bool shouldEvolve () {
@@ -57,6 +65,7 @@ public class Insect : MonoBehaviour {
 		}
 		else {
 			if (Stage == Stage.Larva) {
+				gameObject.tag = "Nymph";
 				Stage = Stage.Nymph;
 				gameObject.GetComponent<LarvaPlayerController>().enabled = false;
 				gameObject.GetComponent<LarvaMovement>().enabled = false;
@@ -66,10 +75,11 @@ public class Insect : MonoBehaviour {
 				gameObject.GetComponent<NymphMovement>().enabled = true;
 				gameObject.GetComponent<AdultPlayerController>().enabled = false;
 				gameObject.GetComponent<AdultMovement>().enabled = false;
-
+				cM.callCutscene(3);
 				Debug.Log ("I'm now a Nymphy!");
 			}
 			else if (Stage == Stage.Nymph) {
+				gameObject.tag = "Adult";
 				Stage = Stage.Adult;
 				gameObject.GetComponent<LarvaPlayerController>().enabled = false;
 				gameObject.GetComponent<LarvaMovement>().enabled = false;
@@ -81,9 +91,14 @@ public class Insect : MonoBehaviour {
 				gameObject.GetComponent<AdultMovement>().enabled = true;
 				gameObject.GetComponent<AdultPlayerController>().reticle.ProjectionThreshold = gameObject.GetComponent<AdultPlayerController>().reticle.DefaultProjectionDistance;
 				gameObject.GetComponent<AdultPlayerController>().reticle.InvalidTargetColor = gameObject.GetComponent<AdultPlayerController>().reticle.DefaultColor;
+				cM.callCutscene(4);
 				Debug.Log ("I'm now a Big ol' Adult!");
 			}
 		}
+	}
+
+	public void win () {
+		cM.callCutscene (5);
 	}
 
 	// Use this for initialization
@@ -94,8 +109,10 @@ public class Insect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Backslash)) {
-			evolve ();
+		if (Input.GetKeyDown (KeyCode.Backslash)) {
+			evolve (); 
+		} else if (Input.GetKeyDown (KeyCode.Alpha0)) {
+			IsAlive = false;
 		}
 	}
 }

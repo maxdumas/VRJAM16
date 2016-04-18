@@ -5,13 +5,12 @@ public class Food : MonoBehaviour {
 
 	public int StrengthContent = 1;
 
-	// Use this for initialization
-	void Start () {
-	
+	public void OnTriggerEnter (Collider other) {
+		if (other.gameObject.CompareTag ("Larva")) {
+			other.GetComponent<Insect>().Strength += StrengthContent;
+			PoolMaster.Spawn ("Explosion", "bugExplosion", transform.position);
+			PoolMaster.Despawn (this.gameObject);
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

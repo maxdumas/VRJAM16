@@ -17,7 +17,8 @@ public class LarvaPlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		direction = lookDirection.position;
-		_mvmt.MoveInDirection (direction, MovementSpeed/10000f);
+		_mvmt.MoveInDirection (direction, MovementSpeed/1000f);
+		transform.position.Scale (new Vector3 (1f, 0f, 1f));
 	}
 
 	public void OnCollisionEnter (Collision collision) {
@@ -32,9 +33,9 @@ public class LarvaPlayerController : MonoBehaviour {
 		}
 		
 		// If we hit food...
-		var food = collision.gameObject.GetComponent<Food> ();
+		/* var food = collision.gameObject.GetComponent<Food> ();
 		if (food != null) {
 			_insect.Strength += food.StrengthContent; // We get its strength!
-		}
+		} */
 	}
 }

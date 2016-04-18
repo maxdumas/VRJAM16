@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour {
 
 	public float rangeMin = .1f;
 	public float rangeMax = 2.2f;
+
+	private int nObjects = 0;
 	//private GameObject _title;
 	//private GameObject _playerShip;
 	//private Text _scoreText;
@@ -39,157 +41,40 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PoolMaster.PlayAudio("Music", true);
-		//StartCoroutine ("SpawnStuff");
+		StartCoroutine (Spawner ());
 	}
-	/*
-	private IEnumerator SpawnStuff () {
+
+	public IEnumerator Spawner () {
 		while (true) {
-			switch (_state) {
-			case SpawnState.Init:
-				Init ();
-				yield return new WaitForSeconds (3.0f);
-				break;
-			case SpawnState.Idle:
-				Idle ();
-				yield return new WaitForEndOfFrame ();
-				break;
-			case SpawnState.Spawn:
-				Spawn ();
-				yield return new WaitForEndOfFrame ();
-				break;
-			case SpawnState.Wait:
-				Wait ();
-				yield return new WaitForSeconds (_frequency);
-				break;
-			case SpawnState.Barrage:
-				Barrage ();
-				yield return new WaitForEndOfFrame ();
-				break;
-			case SpawnState.BarrageWait:
-				BarrageWait ();
-				yield return new WaitForSeconds (_barrageFrequency);
-				break;
-			case SpawnState.Reset:
-				Reset ();
-				yield return new WaitForEndOfFrame ();
-				break;
+			if (nObjects < 500) {
+				Debug.Log ("I AM SPAWN");
+				PoolMaster.Spawn ("Bugs", "food", PoolMaster.GetRandomSpawnPoint ("FoodSpawn"));
+				PoolMaster.Spawn ("Bugs", "larvaModel", PoolMaster.GetRandomSpawnPoint("LarvaSpawn"));
+				PoolMaster.Spawn ("Bugs", "nymphModel", PoolMaster.GetRandomSpawnPoint("NymphSpawn"));
+				PoolMaster.Spawn ("Bugs", "adultModel", PoolMaster.GetRandomSpawnPoint("AdultSpawn"));
 			}
-		} 
+			yield return new WaitForSeconds(0.75f);
+		}
 	}
-	
-	private void Init () {
-	//	_highScore = PlayerPrefs.GetInt ("HighScore");
-	//	_scoreText = GameObject.Find ("scoreText").GetComponent<Text> ();
-	//	_highScoreText = GameObject.Find ("highText").GetComponent<Text> ();
-	//	_highScoreText.text = "HIGH SCORE: " + _highScore.ToString ();
-	//	_playerShip = GameObject.Find ("playerShip");
-		//_title = GameObject.Find ("asteroid_title");
-		//_playerShip.SetActive (false);
-		_state = SpawnState.Idle;
-	}
-	
-	private void Idle () {
-	//	if (_title.activeSelf) {
-		//	_playerShip.SetActive (true);
-	//		_title.SetActive (false);
-	//	}
-		
-		_state = SpawnState.Spawn;
-	} */
 
 	public void Update () {
-		if (Input.GetKeyDown (KeyCode.RightShift)) {
+		nObjects = GameObject.FindObjectsOfType (typeof(MonoBehaviour)).Length;
+		
+		if (Input.GetKey (KeyCode.RightShift)) {
 			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("FoodSpawn");
 			PoolMaster.Spawn ("Bugs", "food", tPos);
-			//Debug.Log ("I'm spawning Food!!");
 		}
-		if (Input.GetKeyDown (KeyCode.Tab)) {
+		if (Input.GetKey (KeyCode.Tab)) {
 			Vector3 tPos4 = PoolMaster.GetRandomSpawnPoint ("LarvaSpawn");
 			PoolMaster.Spawn ("Bugs", "larvaModel", tPos4);
-			//Debug.Log ("I'm spawning Larva!!");
 		}
-		if (Input.GetKeyDown (KeyCode.CapsLock)) {
+		if (Input.GetKey (KeyCode.CapsLock)) {
 			Vector3 tPos3 = PoolMaster.GetRandomSpawnPoint("NymphSpawn");
 			PoolMaster.Spawn ("Bugs", "nymphModel", tPos3);
-			//Debug.Log ("I'm spawning Nymphs!!");
 		}
-		if (Input.GetKeyDown (KeyCode.LeftShift)) {
+		if (Input.GetKey (KeyCode.Alpha1)) {
 			Vector3 tPos1 = PoolMaster.GetRandomSpawnPoint("AdultSpawn");
 			PoolMaster.Spawn ("Bugs", "adultModel", tPos1);
-			//Debug.Log ("I'm spawning Adults!!");
 		}
 	}
-	/*
-	private void Spawn () {
-		if (Random.Range (0, 100) < _swarmChance) {
-			int swarmSize = Random.Range (_swarmMin, _swarmMax);
-			for (int i = 0; i < swarmSize; i++) {
-				//Vector3 tPos = new Vector3 (Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax), Random.Range (rangeMin, rangeMax));
-				//tPos = Camera.main.ViewportToWorldPoint (tPos);
-				//tPos.z = 0;
-				//SpawnFood
-				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("FoodSpawn");
-				PoolMaster.Spawn ("Bugs", "food", tPos);
-			}
-		} else {
-			//tPos = Camera.main.ViewportToWorldPoint (tPos);
-			//tPos.z = 0;
-			Vector3 tPos1 = PoolMaster.GetRandomSpawnPoint("AdultSpawn");
-			PoolMaster.Spawn ("Bugs", "adultModel", tPos1);
-			Vector3 tPos2 = PoolMaster.GetRandomSpawnPoint("FoodSpawn");
-			PoolMaster.Spawn ("Bugs", "food", tPos2);
-			Vector3 tPos3 = PoolMaster.GetRandomSpawnPoint("NymphSpawn");
-			PoolMaster.Spawn ("Bugs", "nymphModel", tPos3);
-			Vector3 tPos4 = PoolMaster.GetRandomSpawnPoint("LarvaSpawn");
-			PoolMaster.Spawn ("Bugs", "larvaModel", tPos4);
-		}
-		_state = SpawnState.Wait;
-	}
-	
-	private void Wait () {
-		if (Random.Range (0, 100) < _barrageChance) 
-			_state = SpawnState.Barrage;
-		else
-			_state = SpawnState.Spawn;
-	}
-	
-	private void Barrage () {
-		if (Random.Range (0, 100) < _swarmChance) {
-			int swarmSize = Random.Range (_swarmMin, _swarmMax);
-			for (int i = 0; i < swarmSize; i++) {
-				Vector3 tPos = PoolMaster.GetRandomSpawnPoint("NymphSpawn");
-				PoolMaster.Spawn ("Bugs", "nymphModel", tPos);
-			}
-		} else {
-			Vector3 tPos = PoolMaster.GetRandomSpawnPoint("LarvaSpawn");
-			PoolMaster.Spawn ("Bugs", "larvaModel", tPos);
-		}
-		_state = SpawnState.BarrageWait;
-	}
-	
-	private void BarrageWait () {
-		if (_barrageTimer < _barrageLength) {
-			_barrageTimer += _barrageFrequency;
-			_state = SpawnState.Barrage;
-		} else {
-			_barrageTimer = 0;
-			_state = SpawnState.Wait;
-		}
-	}
-
-
-	private void Reset () {
-	
-	}
-	/*
-	public void ModifyScore (int amt) {
-		_score += amt;
-		_scoreText.text = "SCORE: " + _score.ToString ();
-		if (_score > _highScore) {
-			_highScore = _score;
-			_highScoreText.text = "HIGH SCORE: " + _highScore.ToString ();
-			PlayerPrefs.SetInt ("HighScore", _highScore);
-		}
-	}
-	 */
 }

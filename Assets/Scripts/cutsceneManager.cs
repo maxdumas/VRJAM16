@@ -21,6 +21,7 @@ public class cutsceneManager : MonoBehaviour {
 			cutscenes [i].SetActive (false);
 		}
 		//turn on requested scene
+		cutSceneCamera.SetActive (true);
 		cutscenes [scene].SetActive (true);
 		var sceneDelayer = cutscenes [scene].GetComponent<continueDelayer> ();
 		if (sceneDelayer != null) {

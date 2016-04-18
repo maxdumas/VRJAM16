@@ -96,6 +96,23 @@ public class OVRScreenFade : MonoBehaviour
 		isFading = false;
 	}
 
+	public IEnumerator FadeOut()
+	{
+		float elapsedTime = 0.0f;
+		fadeMaterial.color = fadeColor;
+		Color color = fadeColor;
+		isFading = true;
+		while (elapsedTime < fadeTime)
+		{
+			yield return fadeInstruction;
+			elapsedTime += Time.deltaTime;
+			color.a = Mathf.Clamp01(elapsedTime / fadeTime);
+			fadeMaterial.color = color;
+		}
+		isFading = false;
+	}
+
+
 	/// <summary>
 	/// Renders the fade overlay when attached to a camera object
 	/// </summary>
