@@ -8,5 +8,6 @@ public class DestroyByTime : MonoBehaviour {
 	void Start () {
 		//Destroy (gameObject, lifetime);
 		PoolMaster.Despawn(this.gameObject, lifetime);
+		PoolMaster.Despawn (gameObject, lifetime);
 	}
 }

@@ -23,7 +23,7 @@ public class AdultPlayerController : Controller {
 		}
 	}
 
-	public void OnTriggerEnter (Collider other) {
+	public void OnCollisionEnter (Collision other) {
 		// If we hit another insect...
 		var otherInsect = other.gameObject.GetComponent<Insect> ();
 		if (otherInsect != null) {
@@ -33,6 +33,11 @@ public class AdultPlayerController : Controller {
 			} else if (otherInsect.Stage == Stage.Larva) {
 				_insect.Strength += 2;
 				reticle.ProjectionThreshold += 0.5f;
+				PoolMaster.PlayAudio("Food");
+				PoolMaster.PlayAudio("Explosion");
+				PoolMaster.Spawn ("Explosion", "bugExplosion", this.transform.position);
+				PoolMaster.Despawn(other.gameObject);
+				//PoolMaster.Despawn
 				Debug.Log (_insect.Strength);
 			}
 		}

@@ -113,7 +113,9 @@ public class Insect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Reticle.SetActive (false);
+		if (isPlayer) {
+			Reticle.SetActive (false);
+		}
 		//gameObject.GetComponent<AdultPlayerController>().reticle.enabled = false;
 	}
 	
