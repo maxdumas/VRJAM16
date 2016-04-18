@@ -81,6 +81,7 @@ public class LarvaAIController : Controller {
 		if (otherInsect != null) {
 			// And it's an adult...
 			if (otherInsect.Stage == Stage.Adult) {
+				PoolMaster.PlayAudio("Explosion");
 				PoolMaster.Spawn ("Explosion", "bugExplosion", this.transform.position);
 				PoolMaster.Despawn(this.gameObject); // We are eaten!
 			}

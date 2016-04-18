@@ -8,6 +8,7 @@ public class LarvaPlayerController : MonoBehaviour {
 	private Vector3 direction;
 	private LarvaMovement _mvmt;
 	private Insect _insect;
+	private float distanceToGround;
 
 	// Use this for initialization
 	void Start () {
@@ -16,9 +17,14 @@ public class LarvaPlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		direction = lookDirection.position;
+			direction = lookDirection.position;
 		_mvmt.MoveInDirection (direction, MovementSpeed/1000f);
-		transform.position.Scale (new Vector3 (1f, 0f, 1f));
+	/*	transform.position.Scale (new Vector3 (1f, 0f, 1f));
+		RaycastHit hit;
+		if (Physics.Raycast (transform.position, -Vector3.up, hit)) { 
+			distanceToGround = hit.distance;
+			transform.position.y = hit.distance; 
+		} */
 	}
 
 	public void OnCollisionEnter (Collision collision) {

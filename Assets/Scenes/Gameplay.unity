@@ -254,7 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &27608876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,7 +789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &237106860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,7 +1264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &344551285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,7 +1395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &362563545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1826,6 +1822,8 @@ MonoBehaviour:
   _swarmMin: 3
   rangeMin: .100000001
   rangeMax: 2.20000005
+  nObjects: 0
+  maxObjects: 500
 --- !u!4 &509821148
 Transform:
   m_ObjectHideFlags: 0
@@ -1914,7 +1912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &539409296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2045,7 +2042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &574503768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2539,7 +2535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &739492247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,7 +2604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &748740590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2775,7 +2769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &759590566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3054,7 +3047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &806357409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,6 +3095,8 @@ MonoBehaviour:
   Reticle: {fileID: 677852813}
   isPlayer: 1
   cM: {fileID: 523202800}
+  gC: {fileID: 509821147}
+  toggle: 0
 --- !u!114 &850530783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3137,9 +3131,9 @@ Rigidbody:
   m_GameObject: {fileID: 850530771}
   serializedVersion: 2
   m_Mass: 60
-  m_Drag: 0
+  m_Drag: 10
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -3156,6 +3150,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: .419999987
   m_Center: {x: 0, y: .819999993, z: 0}
+--- !u!114 &850530787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 850530771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f63f1aa95ba5d42a5673aa1f91adda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &864327664
 Prefab:
   m_ObjectHideFlags: 0
@@ -3518,7 +3523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1002024851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3618,6 +3622,46 @@ Prefab:
       propertyPath: pools.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPans.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: clipLimit.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioNames.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: activeCount.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: mixerGroupID.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioVolumes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPitches.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPriorities.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPersistence.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 11422152, guid: 13f2588d564790342a267ac07600504c, type: 2}
       propertyPath: pools.Array.data[1].alwaysMax.Array.size
       value: 1
@@ -3682,6 +3726,46 @@ Prefab:
       propertyPath: pools.Array.data[1].uniquePool.Array.data[0]
       value: 
       objectReference: {fileID: 159024, guid: 97cc6c7dbb5589b47b949b3f484c6368, type: 2}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3cf964e0027c82a40b40b478eef03538, type: 3}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioVolumes.Array.data[2]
+      value: .639999986
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioVolumes.Array.data[0]
+      value: .360000014
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioNames.Array.data[3]
+      value: Food
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioVolumes.Array.data[3]
+      value: .839999974
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPriorities.Array.data[3]
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPitches.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: clipLimit.Array.data[3]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 41910168433bdba4ca5019d6141448e2, type: 3}
+    - target: {fileID: 11434866, guid: 13f2588d564790342a267ac07600504c, type: 2}
+      propertyPath: audioPriorities.Array.data[0]
+      value: 102
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13f2588d564790342a267ac07600504c, type: 2}
   m_IsPrefabParent: 0
@@ -3728,7 +3812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1030445562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3826,7 +3909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1078928252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3896,7 +3978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1136999672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4494,7 +4575,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11429932, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: MaximumSpeed
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 11406686, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: ProjectionThreshold
@@ -4506,7 +4587,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11473128, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: MovementSpeed
-      value: 10
+      value: .899999976
       objectReference: {fileID: 0}
     - target: {fileID: 14300000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 2}
       propertyPath: m_Height
@@ -5090,7 +5171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1452847930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5236,7 +5316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1497181668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5306,7 +5385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1502973597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5453,7 +5531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1514456042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5898,7 +5975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &1615105599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7189,7 +7265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &2042544578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7459,7 +7534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9d3208e95f37a449a765e733fe27e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randRot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &2143873854
 MonoBehaviour:
   m_ObjectHideFlags: 0

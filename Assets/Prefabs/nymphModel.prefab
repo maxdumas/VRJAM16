@@ -502,8 +502,9 @@ MonoBehaviour:
   ReticleSpawn: {fileID: 0}
   Target: {x: 0, y: 0, z: 0}
   DefaultProjectionDistance: 5
-  ProjectionThreshold: 20
+  ProjectionThreshold: 15
   TargetIsValid: 0
+  DefaultColor: {r: 0, g: 0, b: 0, a: 0}
   InvalidTargetColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &11456518
 MonoBehaviour:
@@ -520,6 +521,11 @@ MonoBehaviour:
   Larva: {fileID: 165858, guid: 3bcdf040e3180c941899173a00555168, type: 2}
   Nymph: {fileID: 190576}
   Adult: {fileID: 166246, guid: b86264b0b87391f45bfd4052d98376a9, type: 2}
+  Reticle: {fileID: 0}
+  isPlayer: 0
+  cM: {fileID: 0}
+  gC: {fileID: 0}
+  toggle: 0
 --- !u!114 &11493036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -586,6 +592,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: InvalidTargetColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ProjectionThreshold
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

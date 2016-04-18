@@ -30,7 +30,10 @@ public class GameController : MonoBehaviour {
 	public float rangeMin = .1f;
 	public float rangeMax = 2.2f;
 
-	private int nObjects = 0;
+	public int nObjects = 0;
+	public int maxObjects;
+
+	private float countDown = 10f;
 	//private GameObject _title;
 	//private GameObject _playerShip;
 	//private Text _scoreText;
@@ -46,18 +49,25 @@ public class GameController : MonoBehaviour {
 
 	public IEnumerator Spawner () {
 		while (true) {
-			if (nObjects < 500) {
+			if (nObjects < maxObjects) {
 				Debug.Log ("I AM SPAWN");
 				PoolMaster.Spawn ("Bugs", "food", PoolMaster.GetRandomSpawnPoint ("FoodSpawn"));
 				PoolMaster.Spawn ("Bugs", "larvaModel", PoolMaster.GetRandomSpawnPoint("LarvaSpawn"));
 				PoolMaster.Spawn ("Bugs", "nymphModel", PoolMaster.GetRandomSpawnPoint("NymphSpawn"));
 				PoolMaster.Spawn ("Bugs", "adultModel", PoolMaster.GetRandomSpawnPoint("AdultSpawn"));
 			}
-			yield return new WaitForSeconds(0.75f);
+			yield return new WaitForSeconds(0.8f);
+			countDown = 10f;
 		}
 	}
 
 	public void Update () {
+		countDown -= Time.deltaTime;
+
+		if (countDown <= 0) {
+			Spawner();
+		}
+
 		nObjects = GameObject.FindObjectsOfType (typeof(MonoBehaviour)).Length;
 		
 		if (Input.GetKey (KeyCode.RightShift)) {

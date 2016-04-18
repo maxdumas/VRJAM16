@@ -31,7 +31,7 @@ public class AdultPlayerController : Controller {
 			if (otherInsect.Stage == Stage.Nymph) {
 				_insect.IsAlive = false;
 			} else if (otherInsect.Stage == Stage.Larva) {
-				_insect.Strength += 1;
+				_insect.Strength += 2;
 				reticle.ProjectionThreshold += 0.5f;
 				Debug.Log (_insect.Strength);
 			}
@@ -40,7 +40,7 @@ public class AdultPlayerController : Controller {
 	}
 
 	public void GameWin() {
-		if (_insect.Strength >= 35) {
+		if (_insect.Strength >= 30) {
 			_insect.win ();
 			Debug.Log ("FLAGELLEA");
 			}

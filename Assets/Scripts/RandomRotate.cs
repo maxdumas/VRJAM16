@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RandomRotate : MonoBehaviour {
 
-	public Quaternion randRot;
+	private Quaternion randRot;
 	private float minScale = 0.5f;
 	private float maxScale = 1.8f;
 

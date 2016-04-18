@@ -15,6 +15,10 @@ public class Insect : MonoBehaviour {
 	public bool isPlayer;
 
 	public cutsceneManager cM;
+	public GameController gC;
+
+	public bool toggle;
+	
 
 
 
@@ -59,7 +63,7 @@ public class Insect : MonoBehaviour {
 				PoolMaster.Spawn ("Bugs", "nymphModel", transform.position, transform.rotation);
 				//Instantiate (Nymph, transform.position, transform.rotation);
 			} else if (Stage == Stage.Nymph) {
-				PoolMaster.Spawn ("Bugs", "nymphModel", transform.position, transform.rotation);
+				PoolMaster.Spawn ("Bugs", "adultModel", transform.position, transform.rotation);
 				//Instantiate (Nymph, transform.position, transform.rotation);
 			}
 		}
@@ -67,6 +71,9 @@ public class Insect : MonoBehaviour {
 			if (Stage == Stage.Larva) {
 				gameObject.tag = "Nymph";
 				Stage = Stage.Nymph;
+				gameObject.GetComponent<StickToGround>().enabled = false;
+				gC.maxObjects = 700;
+				gC.Spawner();
 				gameObject.GetComponent<LarvaPlayerController>().enabled = false;
 				gameObject.GetComponent<LarvaMovement>().enabled = false;
 				gameObject.GetComponent<NymphPlayerController>().enabled = true;
@@ -81,6 +88,9 @@ public class Insect : MonoBehaviour {
 			else if (Stage == Stage.Nymph) {
 				gameObject.tag = "Adult";
 				Stage = Stage.Adult;
+				gC.maxObjects = 1000;
+				gC.Spawner();
+				gameObject.GetComponent<StickToGround>().enabled = false;
 				gameObject.GetComponent<LarvaPlayerController>().enabled = false;
 				gameObject.GetComponent<LarvaMovement>().enabled = false;
 				gameObject.GetComponent<NymphPlayerController>().enabled = false;
@@ -113,6 +123,10 @@ public class Insect : MonoBehaviour {
 			evolve (); 
 		} else if (Input.GetKeyDown (KeyCode.Alpha0)) {
 			IsAlive = false;
+		} else if (Input.GetKeyDown (KeyCode.S)) {
+			gameObject.GetComponent<StickToGround>().enabled = toggle;
+			toggle = !toggle;
 		}
+
 	}
 }

@@ -86,6 +86,7 @@ public class AdultAIController : Controller {
 		if (otherInsect != null) {
 			// And it's an adult...
 			if (otherInsect.Stage == Stage.Nymph) {
+				PoolMaster.PlayAudio("Explosion");
 				PoolMaster.Spawn ("Explosion", "bugExplosion", transform.position);
 				PoolMaster.Spawn ("Bugs", "food", transform.position + Vector3.up);
 				PoolMaster.Spawn ("Bugs", "food", transform.position + Vector3.forward);

@@ -233,12 +233,12 @@ public class OVRPlayerController : MonoBehaviour
 		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
 		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
 		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-		//bool moveDown = Input.GetKey(KeyCode.Q) || OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.LeftShoulder);
-		//bool moveUp = Input.GetKey(KeyCode.E) || OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.RightShoulder);
+		bool moveDown = Input.GetKey(KeyCode.Q) || OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.LeftShoulder);
+		bool moveUp = Input.GetKey(KeyCode.E) || OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.RightShoulder);
 
 
 		bool dpad_move = false;
-		/*
+
 		if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.Up))
 		{
 			moveForward = true;
@@ -260,9 +260,7 @@ public class OVRPlayerController : MonoBehaviour
 		{
 			moveRight  = true;
 			dpad_move = true;
-		} 
-
-		*/
+		}
 
 
 		MoveScale = 1.0f;
@@ -297,11 +295,11 @@ public class OVRPlayerController : MonoBehaviour
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
 		if (moveRight)
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);
-	/*	if (moveDown)
+		if (moveDown)
 			MoveThrottle += ort * (transform.lossyScale.y * moveInfluence * BackAndSideDampen * Vector3.down);
 		if (moveUp)
 			MoveThrottle += ort * (transform.lossyScale.y * moveInfluence * BackAndSideDampen * Vector3.up);
-	*/
+
 		Vector3 euler = transform.rotation.eulerAngles;
 
 
@@ -333,8 +331,6 @@ public class OVRPlayerController : MonoBehaviour
 #if !UNITY_ANDROID || UNITY_EDITOR
 		if (!SkipMouseRotation)
 			euler.y += Input.GetAxis("Mouse X") * rotateInfluence * 3.25f;
-			//If I want mouse to also look up and down-- good for WebGL/non-VR builds
-			//euler.x -= Input.GetAxis("Mouse Y") * rotateInfluence * 3.25f;
 #endif
 
 		moveInfluence = SimulationRate * Time.deltaTime * Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
@@ -361,13 +357,7 @@ public class OVRPlayerController : MonoBehaviour
 
 		float rightAxisX = OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.RightXAxis);
 
-		//if I want my controller to look up and down also 
-
-		float rightAxisY = OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.RightYAxis);
-
-		euler.y += rightAxisX * rotateInfluence; 
-		euler.x -= rightAxisY * rotateInfluence; 
-
+		euler.y += rightAxisX * rotateInfluence;
 
 		transform.rotation = Quaternion.Euler(euler);
 	}

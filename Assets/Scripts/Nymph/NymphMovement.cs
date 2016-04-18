@@ -28,7 +28,7 @@ public class NymphMovement : MonoBehaviour {
 		if (otherInsect != null) {
 			// And it's an adult...
 			if (otherInsect.Stage == Stage.Adult) {
-				_insect.Strength += 1; 
+				_insect.Strength += 2; 
 				Debug.Log (_insect.Strength);
 				// We eat them!!!!!!!!!!! >:)
 			}
